@@ -238,4 +238,9 @@ nav .search {
   border-color: attr(data-couleur);
 }
 
+/* line 212, sass/style.scss */
+.test {
+  color: blue;
+}
+
 /*# sourceMappingURL=style.css.map */
