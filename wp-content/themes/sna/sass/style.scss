@@ -163,13 +163,14 @@ nav{
     color: #1c7040;
     font-size: 28px;
     font-weight: 700;
+    text-transform: uppercase;
     &:before{
         content: '';
         position: absolute;
         height: 2px;
         background-color: #d9453a;
         width:  calc(50% - 33px);
-        bottom: 0;
+        bottom: 10px;
         left: 0;
     }
     &:after{
@@ -178,13 +179,30 @@ nav{
         height: 1px;
         background-color: #d9453a;
         width:  calc(50% - 33px);
-        bottom: 0;
+        bottom: 10px;
         right: 0;
+    }
+    &.white{
+        color: #fff;
+        background-image: url(images/title-primary-white.png);
+        &:before,
+        &:after{
+            background-color: #fff;
+        }
     }
 }
 .produit{
     padding-top: 45px;
     padding-bottom: 45px;
+    position: relative;
+    .bg-grey{
+        background-color: #f0f0f0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 50%;
+    }
     .item{
         opacity: 0;
         figure{
@@ -201,14 +219,77 @@ nav{
                 border: 1px solid #fff;
                 &:hover{
                     text-decoration: none;
-                    background-color: #fff !important;
-                    color: attr(data-couleur);
-                    border-color: attr(data-couleur);
                 }
             }
         }
     }
 }
-.test{
-    color: blue;
+.assurance{
+    background-color: #1c7040;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    .text-knob{
+        font-size: 18px;
+        margin-top: 15px;
+        color: #fff;
+        
+    }
+}
+.sites{
+    margin-top: 30px;
+    position: relative;
+    .content{
+        position: relative;
+        .left-section{
+            width: 50%;
+            padding: 45px;
+            background-color: #f2f2f2;
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: justify;
+            font-size: 18px;
+        }
+        .right-section{
+            width: 50%;
+            margin-left: 50%;
+            .right-content{
+                position: relative;
+               .left-text{
+                    width: 50%;
+                    padding: 35px;
+                    background-color: #1c7040;
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    padding: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    text-align: justify;
+                    color: #fff;
+                    font-size: 18px;
+                }
+                .right-image{
+                    width: 50%;
+                    margin-left: 50%;
+                } 
+            }
+            .anim{
+                opacity: 0;
+            }
+        }
+    }
+        
+}
+.gallery{
+    margin-top: 30px;
+    .anim{
+        opacity: 0;
+    }
 }

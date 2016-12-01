@@ -20,8 +20,9 @@ wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), 
 	//wp_enqueue_script('my_jquery', get_template_directory_uri() . '/js/jquery-1.12.3.min.js', array(), '1.12.3', true);
 //	wp_enqueue_script('bootstrapjs', get_template_directory_uri() . '/js/bootstrap.js', array(), '3.3.6', true);
 	wp_enqueue_script('UiKit', get_template_directory_uri() . '/js/uikit.js', array(), '1.0.0', true);
-	//wp_enqueue_script('uikit_slideshow', get_template_directory_uri() . '/js/slideshow.min.js', array(), '1.0.0', true);
-	//wp_enqueue_script('uikit_slideshow_fx', get_template_directory_uri() . '/js/slideshow-fx.min.js', array(), '1.0.0', true);
+        wp_enqueue_script('UiKit_grid', get_template_directory_uri() . '/js/grid.min.js', array(), '1.0.0', true);
+	wp_enqueue_script('knob', get_template_directory_uri() . '/js/jquery.knob.min.js', array(), '1.0.0', true);
+	wp_enqueue_script('uikit_lightbox', get_template_directory_uri() . '/js/lightbox.min.js', array(), '1.0.0', true);
         wp_enqueue_script('TweenMax', get_template_directory_uri() . '/js/TweenMax.min.js', array(), '1.0.0', true);
 
 //	/************* My script *****************/
@@ -68,6 +69,26 @@ function create_post_type() {
 		  'hierarchical' => false,
 		)
 	);
+        register_post_type( 'gallery',
+		array(
+		  'labels' => array(
+		    'name' => __( 'Gallerie' )
+		  ),
+		  'public' => true,
+		  'supports' => array('title','thumbnail'),
+		  'hierarchical' => false,
+		)
+	);
+         register_post_type( 'news',
+		array(
+		  'labels' => array(
+		    'name' => __( 'Actualite' )
+		  ),
+		  'public' => true,
+		  'supports' => array('title','editor','thumbnail'),
+		  'hierarchical' => false,
+		)
+	);
 	/*register_post_type( 'Produits',
 		array(
 		  'labels' => array(
@@ -80,12 +101,12 @@ function create_post_type() {
 	);*/
 }
 add_action( 'init', 'create_post_type' );
-add_theme_support( 'post-thumbnails', array( 'products', 'page' ) );
+add_theme_support( 'post-thumbnails', array( 'products', 'page', 'gallery' ) );
 add_action( 'init', 'my_add_excerpts_to_pages' );
 function my_add_excerpts_to_pages() {
      add_post_type_support( 'page', 'excerpt' );
      add_post_type_support( 'products', 'excerpt' );
-
+     //add_post_type_support( 'news', 'excerpt' );
 }
 //set_post_thumbnail_size( 300, 300 );
 
