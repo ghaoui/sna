@@ -1,0 +1,241 @@
+/*
+Theme Name: SNA
+Theme URI: http://wordpress.org/themes/twentyfourteen
+Author: the ghaoui hamdi
+Author URI: ghaoui.hamdi@gmail.com
+Description: SNA
+Version: 1.2
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, blue, gray, red, white, yellow, dark, light, one-column, two-columns, right-sidebar, fixed-layout, responsive-layout, accessibility-ready, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+Text Domain: twentysixteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+@font-face {
+  font-family: 'baar_sophia';
+  src: url("fonts/baars__-webfont.woff2") format("woff2"), url("fonts/baars__-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'abel';
+  src: url("fonts/abel-regular-webfont.woff2") format("woff2"), url("fonts/abel-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 22, sass/style.scss */
+body {
+  padding-top: 15px;
+  font-family: "roboto";
+}
+/* line 25, sass/style.scss */
+body .back-top {
+  display: none;
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+  border: 2px solid #ff33cc;
+  position: fixed;
+  right: 20px;
+  bottom: 3em;
+  text-decoration: none;
+  z-index: 6;
+  font-size: 20px;
+  color: #ff33cc;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 7px;
+}
+
+/* line 43, sass/style.scss */
+header {
+  border-bottom: 2px solid #cbd1cd;
+  padding-bottom: 15px;
+}
+/* line 46, sass/style.scss */
+header .logo {
+  position: relative;
+  opacity: 0;
+}
+/* line 50, sass/style.scss */
+header .iso {
+  opacity: 0;
+}
+/* line 53, sass/style.scss */
+header .social {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  margin-top: 25px;
+  margin-bottom: 0;
+}
+/* line 60, sass/style.scss */
+header .social li {
+  opacity: 0;
+  font-size: 22px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+/* line 66, sass/style.scss */
+header .social li.facebook a {
+  color: #3a559f;
+}
+/* line 71, sass/style.scss */
+header .social li.twitter a {
+  color: #76a9ea;
+}
+/* line 76, sass/style.scss */
+header .social li.instagram a {
+  color: #e09b49;
+}
+/* line 81, sass/style.scss */
+header .social li.google a {
+  color: #f34a38;
+}
+
+/* line 88, sass/style.scss */
+nav {
+  padding-top: 15px;
+  display: flex;
+}
+/* line 91, sass/style.scss */
+nav .menu-main-menu-container {
+  width: 85%;
+}
+/* line 93, sass/style.scss */
+nav .menu-main-menu-container .menu {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 0;
+  list-style: none;
+}
+/* line 98, sass/style.scss */
+nav .menu-main-menu-container .menu li {
+  position: relative;
+}
+/* line 101, sass/style.scss */
+nav .menu-main-menu-container .menu li:before {
+  content: '';
+  background-image: url(images/selected.png);
+  width: 34px;
+  height: 10px;
+  position: absolute;
+  margin: auto;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: all .7s;
+}
+/* line 114, sass/style.scss */
+nav .menu-main-menu-container .menu li a {
+  font-weight: 400;
+  color: #1c7040;
+  font-size: 18px;
+  text-decoration: none;
+}
+/* line 121, sass/style.scss */
+nav .menu-main-menu-container .menu li:hover a {
+  color: #d9453a;
+}
+/* line 124, sass/style.scss */
+nav .menu-main-menu-container .menu li:hover:before {
+  opacity: 1;
+}
+/* line 129, sass/style.scss */
+nav .menu-main-menu-container .menu li.current-menu-item a {
+  color: #d9453a;
+}
+/* line 132, sass/style.scss */
+nav .menu-main-menu-container .menu li.current-menu-item:before {
+  opacity: 1;
+}
+/* line 139, sass/style.scss */
+nav .search {
+  width: 15%;
+}
+
+/* line 143, sass/style.scss */
+.slider {
+  background-color: #f0f0f0;
+}
+/* line 146, sass/style.scss */
+.slider .rev_slider li {
+  background-color: transparent !important;
+}
+/* line 150, sass/style.scss */
+.slider .entreprise {
+  text-align: center;
+  margin-top: 30px;
+  padding-bottom: 30px;
+}
+
+/* line 156, sass/style.scss */
+.title-primary {
+  display: inline-block;
+  background-image: url(images/title-primary.png);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  padding-bottom: 22px;
+  position: relative;
+  color: #1c7040;
+  font-size: 28px;
+  font-weight: 700;
+}
+/* line 166, sass/style.scss */
+.title-primary:before {
+  content: '';
+  position: absolute;
+  height: 2px;
+  background-color: #d9453a;
+  width: calc(50% - 33px);
+  bottom: 0;
+  left: 0;
+}
+/* line 175, sass/style.scss */
+.title-primary:after {
+  content: '';
+  position: absolute;
+  height: 1px;
+  background-color: #d9453a;
+  width: calc(50% - 33px);
+  bottom: 0;
+  right: 0;
+}
+
+/* line 185, sass/style.scss */
+.produit {
+  padding-top: 45px;
+  padding-bottom: 45px;
+}
+/* line 188, sass/style.scss */
+.produit .item {
+  opacity: 0;
+}
+/* line 190, sass/style.scss */
+.produit .item figure {
+  text-align: center;
+}
+/* line 194, sass/style.scss */
+.produit .item .content p {
+  text-align: justify;
+}
+/* line 197, sass/style.scss */
+.produit .item .content a {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #fff;
+  border: 1px solid #fff;
+}
+/* line 202, sass/style.scss */
+.produit .item .content a:hover {
+  text-decoration: none;
+  background-color: #fff !important;
+  color: attr(data-couleur);
+  border-color: attr(data-couleur);
+}
+
+/*# sourceMappingURL=style.css.map */
