@@ -54,5 +54,24 @@
                 });
               });
         });
+       var scene = document.getElementById('scene');
+var parallax = new Parallax(scene);
 });
 })(jQuery);
+function initMap() {
+    var mapDiv = document.getElementById('map');
+    if(mapDiv.length != 0) {
+	//var mapDiv = document.getElementById('map');
+	var map = new google.maps.Map(mapDiv, {
+	    center: {lat: 36.798711, lng: 10.185847},
+	    zoom: 18,
+	    disableDefaultUI: true
+	});
+        var marker = new google.maps.Marker({
+            position: {lat: 36.798711, lng: 10.185847},
+            map: map,
+            title: 'Hello World!',
+            icon: urlimage+'marker.png'
+          });
+    }
+}
