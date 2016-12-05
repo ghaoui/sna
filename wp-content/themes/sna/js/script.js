@@ -55,23 +55,40 @@
               });
         });
        var scene = document.getElementById('scene');
-var parallax = new Parallax(scene);
+        var parallax = new Parallax(scene);
+
+        $('#searchform > div').click(function(e){
+            e.stopPropagation();           
+            $(this).addClass('search-block-open');
+        });
+        $('#searchform > div > input[type="text"]').val(''); 
+        $(document).click(function(){            
+            if($('#searchform > div').hasClass('search-block-open')){
+               $('#searchform > div').removeClass('search-block-open');
+               $('#searchform > div > input[type="text"]').val(''); 
+            }   
+        });
+        $('#map').on('inview.uk.scrollspy', function(){
+            var marker = new google.maps.Marker({
+                position: {lat: 36.798711, lng: 10.185847},
+                map: map,
+                title: 'Hello World!',
+                icon: urlimage+'marker.png',
+                animation: google.maps.Animation.DROP,
+              });
+        });
 });
 })(jQuery);
+var map = "";
 function initMap() {
     var mapDiv = document.getElementById('map');
     if(mapDiv.length != 0) {
 	//var mapDiv = document.getElementById('map');
-	var map = new google.maps.Map(mapDiv, {
+	map = new google.maps.Map(mapDiv, {
 	    center: {lat: 36.798711, lng: 10.185847},
 	    zoom: 18,
 	    disableDefaultUI: true
 	});
-        var marker = new google.maps.Marker({
-            position: {lat: 36.798711, lng: 10.185847},
-            map: map,
-            title: 'Hello World!',
-            icon: urlimage+'marker.png'
-          });
+          //marker.addListener('click', toggleBounce);
     }
 }

@@ -115,7 +115,7 @@
         </div>
     </div>        
 </section>
-<section class="gallery" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.anim', delay: 700}">
+<section class="gallery" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.anim', delay: 500}">
     <div class="text-center uk-margin-bottom">
         <h3 class="title-primary">GALLERIE</h3>
     </div>
@@ -156,10 +156,10 @@
             ?>
         <div class="row news-first">
             
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
                 <?php the_post_thumbnail();?>
             </div>
-            <div class="col-lg-8">
+            <div class="col-lg-8" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
                 <?php the_content();?>
             </div>
             
@@ -172,7 +172,7 @@
             endif; 
         ?>
         
-        <div class="row uk-margin-large-top">
+        <div class="row uk-margin-large-top" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.anim', delay: 500}">
            <?php 
                 $args  = array(
                     'post_type' => 'news',
@@ -185,7 +185,7 @@
                     while ( $the_query->have_posts() ) : $the_query->the_post(); 
                 if ( $i!=0 ) :
             ?> 
-            <div class="col-lg-4 text-center">
+            <div class="col-lg-4 text-center anim">
                 <figure class="uk-overlay uk-overlay-hover">
                     <?php the_post_thumbnail();?>
                     <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom"></figcaption>
@@ -208,7 +208,7 @@
     <div class="text-center uk-margin-bottom">
         <h3 class="title-primary">CONTACT</h3>
     </div>
-    <div id="map"></div>
+    <div id="map" data-uk-scrollspy="{initcls:'uk-scrollspy-init-inview'}"></div>
 </section>
 <footer>
     <ul id="scene" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="15">
@@ -244,8 +244,29 @@
         <div class="container-fluid">
             <div class="col-lg-3 text-center">
                 <a href="<?php bloginfo('url'); ?>" class="logo" >
-                    <img class="" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="">
+                    <img class="" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo-white.png" alt="">
                 </a>
+            </div>
+            <div class="col-lg-6">
+                <div class="copyright">
+                     All Rights Reserved © 2016 Streamerz.
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <ul class="social  ">
+                    <li class="facebook uk-animation-hover uk-animation-scale">
+                        <a href="#" class="uk-icon-facebook-official"></a>
+                    </li>
+                    <li class="twitter uk-animation-hover uk-animation-scale">
+                        <a href="#" class="uk-icon-twitter"></a>
+                    </li>
+                    <li class="instagram uk-animation-hover uk-animation-scale">
+                        <a href="#" class="uk-icon-instagram"></a>
+                    </li>
+                    <li class="google uk-animation-hover uk-animation-scale">
+                        <a href="#" class="uk-icon-google-plus"></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

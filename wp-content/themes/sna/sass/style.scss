@@ -27,14 +27,14 @@ body{
         width: 41px;
         height: 41px;
         border-radius : 50%;
-        border: 2px solid $pink;
+        border: 2px solid #ea3437;
         position: fixed;
         right: 20px;
         bottom: 3em;
         text-decoration: none;
         z-index: 6;
         font-size: 20px;
-        color: $pink;
+        color: #ea3437;
         text-align: center;
         box-sizing: border-box;
         padding-top: 7px;
@@ -138,6 +138,48 @@ nav{
     }
     .search{
         width: 15%;
+        #searchform > div {
+            min-width: 30px;
+            overflow: hidden;
+            transition: width 0.3s ease 0s;
+            width: 0;
+            position: relative;
+            height: 30px;
+            margin-top: -7px;
+            margin-left: auto;
+            margin-right: auto;
+            &.search-block-open {
+                width: 80%;
+            }
+            label{
+                display: none;
+            }
+            input[type='text'] {
+                width: 100%;
+                border: none;
+                background-color: transparent;
+                position: relative;
+                z-index: 1;
+                height: 30px;
+                &:focus{
+                    outline: none;
+                }
+            }
+            #searchsubmit {
+                text-indent: -9999px;
+                width: 30px;
+                height: 30px;
+                background-image: url(images/search.png);
+                background-repeat: no-repeat;
+                background-position: center;
+                border: none;
+                background-color: #fff;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 0;
+            }
+        }            
     }
 }
 .slider{
@@ -339,6 +381,9 @@ nav{
             text-decoration: none;
         }
     }
+    .anim{
+        opacity: 0;
+    }
 }
 .contact{
     margin-top: 30px;
@@ -402,6 +447,34 @@ footer{
                         font-size: 18px;
                         color: #1c7040;
                     }
+                }
+            }
+        }
+    }
+    .sub-footer{
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        padding-bottom: 15px;
+        .copyright{
+            color: #fff;
+            font-weight: 300;
+            text-align: center;
+        }
+        .social{
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding-left: 0;
+            margin-bottom: 0;
+            li{
+                opacity: 0;
+                font-size: 22px;
+                margin-left: 5px;
+                margin-right: 5px;
+                a{
+                    color: #fff;
                 }
             }
         }

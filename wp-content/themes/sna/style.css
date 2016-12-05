@@ -36,14 +36,14 @@ body .back-top {
   width: 41px;
   height: 41px;
   border-radius: 50%;
-  border: 2px solid #ff33cc;
+  border: 2px solid #ea3437;
   position: fixed;
   right: 20px;
   bottom: 3em;
   text-decoration: none;
   z-index: 6;
   font-size: 20px;
-  color: #ff33cc;
+  color: #ea3437;
   text-align: center;
   box-sizing: border-box;
   padding-top: 7px;
@@ -157,23 +157,71 @@ nav .menu-main-menu-container .menu li.current-menu-item:before {
 nav .search {
   width: 15%;
 }
+/* line 141, sass/style.scss */
+nav .search #searchform > div {
+  min-width: 30px;
+  overflow: hidden;
+  transition: width 0.3s ease 0s;
+  width: 0;
+  position: relative;
+  height: 30px;
+  margin-top: -7px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 151, sass/style.scss */
+nav .search #searchform > div.search-block-open {
+  width: 80%;
+}
+/* line 154, sass/style.scss */
+nav .search #searchform > div label {
+  display: none;
+}
+/* line 157, sass/style.scss */
+nav .search #searchform > div input[type='text'] {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+  height: 30px;
+}
+/* line 164, sass/style.scss */
+nav .search #searchform > div input[type='text']:focus {
+  outline: none;
+}
+/* line 168, sass/style.scss */
+nav .search #searchform > div #searchsubmit {
+  text-indent: -9999px;
+  width: 30px;
+  height: 30px;
+  background-image: url(images/search.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
 
-/* line 143, sass/style.scss */
+/* line 185, sass/style.scss */
 .slider {
   background-color: #f0f0f0;
 }
-/* line 146, sass/style.scss */
+/* line 188, sass/style.scss */
 .slider .rev_slider li {
   background-color: transparent !important;
 }
-/* line 150, sass/style.scss */
+/* line 192, sass/style.scss */
 .slider .entreprise {
   text-align: center;
   margin-top: 30px;
   padding-bottom: 30px;
 }
 
-/* line 156, sass/style.scss */
+/* line 198, sass/style.scss */
 .title-primary {
   display: inline-block;
   background-image: url(images/title-primary.png);
@@ -186,7 +234,7 @@ nav .search {
   font-weight: 700;
   text-transform: uppercase;
 }
-/* line 167, sass/style.scss */
+/* line 209, sass/style.scss */
 .title-primary:before {
   content: '';
   position: absolute;
@@ -196,7 +244,7 @@ nav .search {
   bottom: 10px;
   left: 0;
 }
-/* line 176, sass/style.scss */
+/* line 218, sass/style.scss */
 .title-primary:after {
   content: '';
   position: absolute;
@@ -206,23 +254,23 @@ nav .search {
   bottom: 10px;
   right: 0;
 }
-/* line 185, sass/style.scss */
+/* line 227, sass/style.scss */
 .title-primary.white {
   color: #fff;
   background-image: url(images/title-primary-white.png);
 }
-/* line 188, sass/style.scss */
+/* line 230, sass/style.scss */
 .title-primary.white:before, .title-primary.white:after {
   background-color: #fff;
 }
 
-/* line 194, sass/style.scss */
+/* line 236, sass/style.scss */
 .produit {
   padding-top: 45px;
   padding-bottom: 45px;
   position: relative;
 }
-/* line 198, sass/style.scss */
+/* line 240, sass/style.scss */
 .produit .bg-grey {
   background-color: #f0f0f0;
   position: absolute;
@@ -231,53 +279,53 @@ nav .search {
   bottom: 0;
   height: 50%;
 }
-/* line 206, sass/style.scss */
+/* line 248, sass/style.scss */
 .produit .item {
   opacity: 0;
 }
-/* line 208, sass/style.scss */
+/* line 250, sass/style.scss */
 .produit .item figure {
   text-align: center;
 }
-/* line 212, sass/style.scss */
+/* line 254, sass/style.scss */
 .produit .item .content p {
   text-align: justify;
 }
-/* line 215, sass/style.scss */
+/* line 257, sass/style.scss */
 .produit .item .content a {
   display: inline-block;
   padding: 5px 10px;
   color: #fff;
   border: 1px solid #fff;
 }
-/* line 220, sass/style.scss */
+/* line 262, sass/style.scss */
 .produit .item .content a:hover {
   text-decoration: none;
 }
 
-/* line 227, sass/style.scss */
+/* line 269, sass/style.scss */
 .assurance {
   background-color: #1c7040;
   padding-top: 45px;
   padding-bottom: 45px;
 }
-/* line 231, sass/style.scss */
+/* line 273, sass/style.scss */
 .assurance .text-knob {
   font-size: 18px;
   margin-top: 15px;
   color: #fff;
 }
 
-/* line 238, sass/style.scss */
+/* line 280, sass/style.scss */
 .sites {
   margin-top: 30px;
   position: relative;
 }
-/* line 241, sass/style.scss */
+/* line 283, sass/style.scss */
 .sites .content {
   position: relative;
 }
-/* line 243, sass/style.scss */
+/* line 285, sass/style.scss */
 .sites .content .left-section {
   width: 50%;
   padding: 45px;
@@ -292,16 +340,16 @@ nav .search {
   text-align: justify;
   font-size: 18px;
 }
-/* line 257, sass/style.scss */
+/* line 299, sass/style.scss */
 .sites .content .right-section {
   width: 50%;
   margin-left: 50%;
 }
-/* line 260, sass/style.scss */
+/* line 302, sass/style.scss */
 .sites .content .right-section .right-content {
   position: relative;
 }
-/* line 262, sass/style.scss */
+/* line 304, sass/style.scss */
 .sites .content .right-section .right-content .left-text {
   width: 50%;
   padding: 35px;
@@ -318,51 +366,51 @@ nav .search {
   color: #fff;
   font-size: 18px;
 }
-/* line 278, sass/style.scss */
+/* line 320, sass/style.scss */
 .sites .content .right-section .right-content .right-image {
   width: 50%;
   margin-left: 50%;
 }
-/* line 283, sass/style.scss */
+/* line 325, sass/style.scss */
 .sites .content .right-section .anim {
   opacity: 0;
 }
 
-/* line 290, sass/style.scss */
+/* line 332, sass/style.scss */
 .gallery {
   margin-top: 30px;
 }
-/* line 292, sass/style.scss */
+/* line 334, sass/style.scss */
 .gallery .anim {
   opacity: 0;
 }
 
-/* line 296, sass/style.scss */
+/* line 338, sass/style.scss */
 .news {
   margin-top: 30px;
   padding-bottom: 30px;
 }
-/* line 300, sass/style.scss */
+/* line 342, sass/style.scss */
 .news .news-first p {
   font-size: 18px;
   text-align: justify;
 }
-/* line 305, sass/style.scss */
+/* line 347, sass/style.scss */
 .news .border {
   border-bottom: 2px solid #1c7040;
 }
-/* line 307, sass/style.scss */
+/* line 349, sass/style.scss */
 .news .border a {
   display: inline-block;
   padding: 5px 10px;
   color: #fff;
   background-color: #1c7040;
 }
-/* line 312, sass/style.scss */
+/* line 354, sass/style.scss */
 .news .border a:hover {
   text-decoration: none;
 }
-/* line 318, sass/style.scss */
+/* line 360, sass/style.scss */
 .news .uk-overlay-icon:before {
   content: '';
   width: 110px;
@@ -370,52 +418,56 @@ nav .search {
   background-image: url(images/hover-icon.png);
   margin-left: -55px;
 }
-/* line 326, sass/style.scss */
+/* line 368, sass/style.scss */
 .news .uk-overlay-background {
   background-color: rgba(28, 112, 64, 0.5);
 }
-/* line 329, sass/style.scss */
+/* line 371, sass/style.scss */
 .news h4 {
   margin-top: 15px;
   font-size: 22px;
 }
-/* line 333, sass/style.scss */
+/* line 375, sass/style.scss */
 .news a {
   display: inline-block;
   padding: 5px 10px;
   color: #fff;
   background-color: #1c7040;
 }
-/* line 338, sass/style.scss */
+/* line 380, sass/style.scss */
 .news a:hover {
   text-decoration: none;
 }
+/* line 384, sass/style.scss */
+.news .anim {
+  opacity: 0;
+}
 
-/* line 343, sass/style.scss */
+/* line 388, sass/style.scss */
 .contact {
   margin-top: 30px;
 }
-/* line 345, sass/style.scss */
+/* line 390, sass/style.scss */
 .contact #map {
   height: 200px;
 }
 
-/* line 349, sass/style.scss */
+/* line 394, sass/style.scss */
 footer {
   position: relative;
 }
-/* line 351, sass/style.scss */
+/* line 396, sass/style.scss */
 footer #scene {
   padding-left: 0;
   overflow: hidden;
 }
-/* line 354, sass/style.scss */
+/* line 399, sass/style.scss */
 footer #scene .wave {
   -webkit-animation: wave 4s 0.1s infinite linear;
   -moz-animation: wave 4s 0.1s infinite linear;
   animation: wave 4s 0.1s infinite linear;
 }
-/* line 360, sass/style.scss */
+/* line 405, sass/style.scss */
 footer .form {
   padding-top: 60px;
   position: absolute;
@@ -423,7 +475,7 @@ footer .form {
   top: 0;
   left: 0;
 }
-/* line 367, sass/style.scss */
+/* line 412, sass/style.scss */
 footer .form form input,
 footer .form form textarea {
   width: 100%;
@@ -433,7 +485,7 @@ footer .form form textarea {
   font-size: 18px;
   font-family: 'roboto';
 }
-/* line 375, sass/style.scss */
+/* line 420, sass/style.scss */
 footer .form form input[type="submit"],
 footer .form form textarea[type="submit"] {
   background-color: #ea3437;
@@ -443,32 +495,65 @@ footer .form form textarea[type="submit"] {
   font-weight: 700;
   padding: 4px;
 }
-/* line 384, sass/style.scss */
+/* line 429, sass/style.scss */
 footer .form form p {
   margin-top: 0;
 }
-/* line 389, sass/style.scss */
+/* line 434, sass/style.scss */
 footer .form address h5 {
   color: #1c7040;
   font-weight: 700;
   font-size: 22px;
 }
-/* line 394, sass/style.scss */
+/* line 439, sass/style.scss */
 footer .form address p {
   font-size: 16px;
 }
-/* line 396, sass/style.scss */
+/* line 441, sass/style.scss */
 footer .form address p a {
   color: #333;
 }
-/* line 398, sass/style.scss */
+/* line 443, sass/style.scss */
 footer .form address p a:hover {
   text-decoration: none;
 }
-/* line 401, sass/style.scss */
+/* line 446, sass/style.scss */
 footer .form address p a.url {
   font-size: 18px;
   color: #1c7040;
+}
+/* line 454, sass/style.scss */
+footer .sub-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 15px;
+}
+/* line 460, sass/style.scss */
+footer .sub-footer .copyright {
+  color: #fff;
+  font-weight: 300;
+  text-align: center;
+}
+/* line 465, sass/style.scss */
+footer .sub-footer .social {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+/* line 471, sass/style.scss */
+footer .sub-footer .social li {
+  opacity: 0;
+  font-size: 22px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+/* line 476, sass/style.scss */
+footer .sub-footer .social li a {
+  color: #fff;
 }
 
 @keyframes wave {

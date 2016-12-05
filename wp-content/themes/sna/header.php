@@ -41,6 +41,6 @@
     <nav>
         <?php wp_nav_menu(); ?>
         <div class="search">
-            
+            <?php get_search_form();?>
         </div>
     </nav>
