@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <section class="slider">
     <?php putRevSlider("home");?>
-    <div class="entreprise" data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">
+    <div id="entreprise" class="entreprise" data-uk-scrollspy="{cls:'uk-animation-slide-bottom'}">
         <?php 
             $args  = array(
                 'post_type' => 'page',
@@ -19,30 +19,34 @@
         ?>
     </div>
 </section>
-<section class="produit">
+<section class="produit" id="produit">
     <div class="bg-grey"></div>
     <div class="container">
-        <div class="text-center uk-margin-large-bottom">
+        <div class="text-center">
             <h3 class="title-primary">NOS PRODUITS</h3>
+        </div>
+        <div class="text-center uk-margin-large-bottom">
+            <a class="link-all" href="#">Afficher tous les produits</a>
         </div>
         
         <div class="row" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.item', delay: 300}">
             <?php 
                 $args  = array(
                     'post_type' => 'products',
-                    'posts_per_page' => 3,
-                    'order' => 'ASC'
+                    'posts_per_page' => 4,
+                    'order' => 'DES'
                 );
                 $the_query = new WP_Query( $args ); 
                 if ( $the_query->have_posts() ) :
                     while ( $the_query->have_posts() ) : $the_query->the_post(); 
             ?>
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <div class="item">
                     <figure>
                         <?php the_post_thumbnail();?>
                     </figure>
                     <div class="content">
+                        <h4><?php the_title();?></h4>
                         <?php the_excerpt(); ?>
                         <div class="text-center">
                             <a data-couleur="<?php the_field('couleur');?>" href="<?php the_permalink();?>" style="background-color: <?php the_field('couleur');?>">Afficher Plus</a>
@@ -84,9 +88,9 @@
         </div>
     </div>
 </section>
-<section class="sites">
+<section class="sites" id="sites">
     <div class="text-center uk-margin-bottom">
-        <h3 class="title-primary">NOS PRODUITS</h3>
+        <h3 class="title-primary">SITES DE PRODUCTION</h3>
     </div>
     <div class="content">
         <div class="left-section" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
@@ -115,9 +119,9 @@
         </div>
     </div>        
 </section>
-<section class="gallery" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.anim', delay: 500}">
+<section class="gallery" id="gallery" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.anim', delay: 500}">
     <div class="text-center uk-margin-bottom">
-        <h3 class="title-primary">GALLERIE</h3>
+        <h3 class="title-primary">GALERIE</h3>
     </div>
     <div class="uk-grid-width-1-4" data-uk-grid >
         <?php 
@@ -130,8 +134,14 @@
             if ( $the_query->have_posts() ) :
                 while ( $the_query->have_posts() ) : $the_query->the_post(); 
         ?>
-        <div >
-            <a href="<?php the_post_thumbnail_url();?>" class="anim" data-uk-lightbox="{group: 'group1'}"><?php the_post_thumbnail(); ?></a>
+        <div class="uk-overlay-hover parent-anim">
+            <div class="anim">
+            <?php the_post_thumbnail('', array('class'=>'uk-overlay-spin')); ?>
+                <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom">
+                    <a href="<?php the_post_thumbnail_url();?>" class="" data-uk-lightbox="{group: 'group1'}"></a>
+                </figcaption>
+            
+            </div>
         </div>
         <?php
                 endwhile;
@@ -139,7 +149,7 @@
         ?>
     </div>
 </section>
-<section class="news">
+<section class="news" id="news">
     <div class="container">
         <div class="text-center uk-margin-bottom">
             <h3 class="title-primary">Actualités</h3>
@@ -187,12 +197,14 @@
             ?> 
             <div class="col-lg-4 text-center anim">
                 <figure class="uk-overlay uk-overlay-hover">
-                    <?php the_post_thumbnail();?>
-                    <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom"></figcaption>
+                    <?php the_post_thumbnail('', array('class'=>'uk-overlay-spin'));?>
+                    <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom">
+                        <a class="readmoreicon" href="<?php the_permalink();?>"></a>
+                    </figcaption>
                 </figure>
                 <div class="">
                     <h4><?php the_title();?></h4>
-                    <a href="<?php the_permalink();?>">Lire la suite</a>
+                    <a class="readmore" href="<?php the_permalink();?>">Lire la suite</a>
                 </div>                    
             </div>
             <?php
@@ -220,7 +232,7 @@
     <div class="form">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
                     <address>
                         <h5>Société de Nutrition Animale</h5>
                         <p>Z.I. Borj Cédria - Ben Arous - Tél.: 70 020 640 - Fax : 71 430 911<br>
@@ -234,7 +246,7 @@
                         </p>
                     </address>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
                     <?php echo do_shortcode('[contact-form-7 id="71" title="Formulaire de contact 1"]');?>
                 </div>
             </div>

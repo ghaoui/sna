@@ -3,12 +3,35 @@
 
     var offset = 220;
     var duration = 500;
+    var flechmenu = true;
+    var scroll = false;
     $(window).scroll(function() {
         if ($(this).scrollTop() > offset) {
             $('.back-top').fadeIn(duration);
+            //TweenMax.from(".parent-header", 1, {top: 0});
+            TweenMax.to(".parent-header", 1, {top: -153 , ease:Back.easeOut});
+            flechmenu = false;
+            scroll = true;
         } else {
             $('.back-top').fadeOut(duration);
+            TweenMax.to(".parent-header", 1, {top: 0 , ease:Back.easeOut});
+            flechmenu = true;
+            scroll = false;
         }
+        
+    });
+    
+    $('.flech-menu').click(function(){
+        if(scroll){
+            if(flechmenu){
+                TweenMax.to(".parent-header", 1, {top: -153 , ease:Back.easeOut});
+                flechmenu = false;
+            }else{
+                TweenMax.to(".parent-header", 1, {top: 0 , ease:Back.easeOut});
+                flechmenu = true;
+            }
+        }
+            
     });
     $('.back-top').click(function(event) {
         event.preventDefault();
@@ -77,6 +100,38 @@
                 animation: google.maps.Animation.DROP,
               });
         });
+        
+        setInterval(function(){
+            TweenMax.from(".iso", 1, {scale:0});
+            TweenMax.to(".iso", 1, {opacity:1, scale:1}); 
+            if(!flechmenu){
+               TweenMax.from(".flech-menu", 1, {scale:0, opacity:0});
+               TweenMax.to(".flech-menu", 1, {scale:1, opacity:1});    
+            }
+                
+        }, 3000);
+        
+        $('.logo img').hover(function(){
+            $(this).addClass('animated shake');
+        }, function(){
+            $(this).removeClass('animated shake');
+        });
+        
+        $('.produit .item img').hover(function(){
+            $(this).addClass('animated jello');
+        }, function(){
+            $(this).removeClass('animated jello');
+        });
+        
+        $('#menu-main-menu a[href^="#"]').click(function(){
+            var the_id = $(this).attr("href");
+            console.log(the_id)
+            $('html, body').animate({
+                    scrollTop: ($(the_id).offset().top - 50)
+            }, 1200);
+            return false;
+    });
+
 });
 })(jQuery);
 var map = "";

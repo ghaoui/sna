@@ -8,6 +8,7 @@
 	 
 </head>
 <body>
+    <div class="parent-header" data-uk-sticky>
     <header>
         <div class="container-fluid">
             <div class="row">
@@ -44,3 +45,5 @@
             <?php get_search_form();?>
         </div>
     </nav>
+        <div class="flech-menu"></div>
+    </div>
