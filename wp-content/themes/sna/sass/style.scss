@@ -21,6 +21,9 @@ html{
 }
 body{
     font-family: "roboto";
+    position: relative;
+    padding-bottom: 700px;
+    z-index: -1;
     .back-top {
         display: none;
         width: 41px;
@@ -45,11 +48,11 @@ body{
     positon: relative;
     .flech-menu{
         position: absolute;
-        right: 0;
-        background-image: url(images/title-primary.png);
-        width: 57px;
-        height: 17px;
-        bottom: -17px;
+        left: 30px;
+        background-image: url(images/double-arrow.png);
+        width: 48px;
+        height: 48px;
+        bottom: -48px;
         cursor: pointer;
     }
 }
@@ -251,6 +254,12 @@ nav{
             background-color: #fff;
         }
     }
+    &.green{
+        &:before,
+        &:after{
+            background-color: #1c7040;
+        }
+    }
 }
 .produit{
     padding-top: 45px;
@@ -323,6 +332,11 @@ nav{
         margin-top: 15px;
         color: #fff;
         
+    }
+    p{
+        color: #fff;
+        font-size: 18px;
+        text-align: justify;
     }
 }
 .sites{
@@ -479,24 +493,8 @@ nav{
         height: 200px;
     }
 }
-footer{
-    position: relative;
-    #scene{
-        padding-left: 0;
-        overflow: hidden;
-        margin: 0;
-        .wave{
-            -webkit-animation: wave 4s 0.1s infinite linear;
-            -moz-animation: wave 4s 0.1s infinite linear;
-            animation: wave 4s 0.1s infinite linear;
-        }
-    }
     .form{
         padding-top: 60px;
-        position: absolute;
-        width: 100%;
-        top: 0;
-        left: 0;
         form{
             input,
             textarea{
@@ -546,6 +544,23 @@ footer{
             }
         }
     }
+footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    #scene{
+        padding-left: 0;
+        overflow: hidden;
+        margin: 0;
+        .wave{
+            -webkit-animation: wave 4s 0.1s infinite linear;
+            -moz-animation: wave 4s 0.1s infinite linear;
+            animation: wave 4s 0.1s infinite linear;
+        }
+    }
+
     .sub-footer{
         position: absolute;
         width: 100%;

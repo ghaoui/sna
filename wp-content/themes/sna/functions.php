@@ -73,7 +73,7 @@ function create_post_type() {
 		  ),
 		  'public' => true,
 		  'supports' => array('title', 'editor', 'thumbnail'),
-		  'hierarchical' => false,
+		  'hierarchical' => true,
 		)
 	);
         register_post_type( 'gallery',

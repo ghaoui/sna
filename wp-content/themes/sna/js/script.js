@@ -99,6 +99,14 @@
                 icon: urlimage+'marker.png',
                 animation: google.maps.Animation.DROP,
               });
+              marker.addListener('click', function(){
+                  if (this.getAnimation() !== null) {
+                        this.setAnimation(null);
+                      } else {
+                        this.setAnimation(google.maps.Animation.BOUNCE);
+                      }
+              });
+              
         });
         
         setInterval(function(){
@@ -127,7 +135,7 @@
             var the_id = $(this).attr("href");
             console.log(the_id)
             $('html, body').animate({
-                    scrollTop: ($(the_id).offset().top - 50)
+                    scrollTop: ($(the_id).offset().top - 20)
             }, 1200);
             return false;
     });

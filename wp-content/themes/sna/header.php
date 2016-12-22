@@ -45,5 +45,5 @@
             <?php get_search_form();?>
         </div>
     </nav>
-        <div class="flech-menu"></div>
+        <div class="flech-menu"><i class="fa fa-angle-double-down"></i></div>
     </div>

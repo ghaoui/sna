@@ -86,6 +86,15 @@
                 </div>
             </div>
         </div>
+        <div class="row uk-margin-large-top">
+            <div class="col-lg-12 text-center ">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.
+                </p>
+            </div>
+        </div>
     </div>
 </section>
 <section class="sites" id="sites">
@@ -167,7 +176,12 @@
         <div class="row news-first">
             
             <div class="col-lg-4" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
-                <?php the_post_thumbnail();?>
+                <figure class="uk-overlay uk-overlay-hover">
+                    <?php the_post_thumbnail('', array('class'=>'uk-overlay-spin'));?>
+                    <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom">
+                        <a class="readmoreicon" href="<?php the_permalink();?>"></a>
+                    </figcaption>
+                </figure>                
             </div>
             <div class="col-lg-8" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
                 <?php the_content();?>
@@ -222,65 +236,27 @@
     </div>
     <div id="map" data-uk-scrollspy="{initcls:'uk-scrollspy-init-inview'}"></div>
 </section>
-<footer>
-    <ul id="scene" data-friction-x="0.1" data-friction-y="0.1" data-scalar-x="25" data-scalar-y="15">
-      <li class="layer" data-depth="0.00"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/parallax-footer/BG.png"></li>
-      <li class="layer" data-depth="0.30"><img class="wave" src="<?php bloginfo('stylesheet_directory'); ?>/images/parallax-footer/clouds.png"></li>
-      <li class="layer" data-depth="0.00"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/parallax-footer/colline.png"></li>
-      <li class="layer" data-depth="0.10"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/parallax-footer/animaux.png"></li>
-    </ul>
-    <div class="form">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
-                    <address>
-                        <h5>Société de Nutrition Animale</h5>
-                        <p>Z.I. Borj Cédria - Ben Arous - Tél.: 70 020 640 - Fax : 71 430 911<br>
-                        Z.I. Sidi El Héni - Sousse - Tél.: 73 280 400 - Fax : 73 280 409
-                        </p>
-                        <h5>Société Almès</h5>
-                        <p>Z.I. Mateur - Tél.: 72 468 777 - Fax : 72 468 349<br>
-                            Route de Tunis - km 13 Sidi Salah - Sfax - Tél.: 73 280 400 - Fax : 73 280 409<br>
-                            E-mail : <a href="mailto:sna@sna.com.tn">sna@sna.com.tn</a><br>
-                            <a href="www.sna-web.com" target="_blank" class="url">www.sna-web.com</a>
-                        </p>
-                    </address>
-                </div>
-                <div class="col-lg-6" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
-                    <?php echo do_shortcode('[contact-form-7 id="71" title="Formulaire de contact 1"]');?>
-                </div>
+<div class="form">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
+                <address>
+                    <h5>Société de Nutrition Animale</h5>
+                    <p>Z.I. Borj Cédria - Ben Arous - Tél.: 70 020 640 - Fax : 71 430 911<br>
+                    Z.I. Sidi El Héni - Sousse - Tél.: 73 280 400 - Fax : 73 280 409
+                    </p>
+                    <h5>Société Almès</h5>
+                    <p>Z.I. Mateur - Tél.: 72 468 777 - Fax : 72 468 349<br>
+                        Route de Tunis - km 13 Sidi Salah - Sfax - Tél.: 73 280 400 - Fax : 73 280 409<br>
+                        E-mail : <a href="mailto:sna@sna.com.tn">sna@sna.com.tn</a><br>
+                        <a href="www.sna-web.com" target="_blank" class="url">www.sna-web.com</a>
+                    </p>
+                </address>
+            </div>
+            <div class="col-lg-6" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
+                <?php echo do_shortcode('[contact-form-7 id="71" title="Formulaire de contact 1"]');?>
             </div>
         </div>
     </div>
-    <div class="sub-footer">
-        <div class="container-fluid">
-            <div class="col-lg-3 text-center">
-                <a href="<?php bloginfo('url'); ?>" class="logo" >
-                    <img class="" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo-white.png" alt="">
-                </a>
-            </div>
-            <div class="col-lg-6">
-                <div class="copyright">
-                     All Rights Reserved © 2016 Streamerz.
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <ul class="social  ">
-                    <li class="facebook uk-animation-hover uk-animation-scale">
-                        <a href="#" class="uk-icon-facebook-official"></a>
-                    </li>
-                    <li class="twitter uk-animation-hover uk-animation-scale">
-                        <a href="#" class="uk-icon-twitter"></a>
-                    </li>
-                    <li class="instagram uk-animation-hover uk-animation-scale">
-                        <a href="#" class="uk-icon-instagram"></a>
-                    </li>
-                    <li class="google uk-animation-hover uk-animation-scale">
-                        <a href="#" class="uk-icon-google-plus"></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</footer>
+</div>
 <?php get_footer(); ?>
