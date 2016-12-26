@@ -136,7 +136,7 @@
         <?php 
             $args  = array(
                 'post_type' => 'gallery',
-                'posts_per_page' => -1,
+                'posts_per_page' => 12,
                 'order' => 'ASC'
             );
             $the_query = new WP_Query( $args ); 
@@ -145,9 +145,9 @@
         ?>
         <div class="uk-overlay-hover parent-anim">
             <div class="anim">
-            <?php the_post_thumbnail('', array('class'=>'uk-overlay-spin')); ?>
+                <img src="<?php the_field('image');?>" class="uk-overlay-spin">
                 <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom">
-                    <a href="<?php the_post_thumbnail_url();?>" class="" data-uk-lightbox="{group: 'group1'}"></a>
+                    <a href="<?php the_field('image');?>" class="" data-uk-lightbox="{group: 'group1'}"></a>
                 </figcaption>
             
             </div>

@@ -14,6 +14,8 @@ function my_assets() {
 wp_enqueue_style('uikit', get_template_directory_uri() . '/css/uikit.css', array(), '', 'all');
 wp_enqueue_style('sticky', get_template_directory_uri() . '/css/sticky.min.css', array(), '', 'all');
 wp_enqueue_style('animate', get_template_directory_uri() . '/css/animate.css', array(), '', 'all');
+wp_enqueue_style('accordion', get_template_directory_uri() . '/css/accordion.min.css', array(), '', 'all');
+wp_enqueue_style('slideshow', get_template_directory_uri() . '/css/slideshow.min.css', array(), '', 'all');
 
 
 wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), '1.0.0', 'all');
@@ -27,7 +29,9 @@ wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), 
 	wp_enqueue_script('uikit_lightbox', get_template_directory_uri() . '/js/lightbox.min.js', array(), '1.0.0', true);
         wp_enqueue_script('TweenMax', get_template_directory_uri() . '/js/TweenMax.min.js', array(), '1.0.0', true);
         wp_enqueue_script('parallax', get_template_directory_uri() . '/js/parallax.min.js', array(), '1.0.0', true);
-        //wp_enqueue_script('parallax_jquery', get_template_directory_uri() . '/js/jquery.parallax.min.js', array(), '1.0.0', true);
+        wp_enqueue_script('uikit_accordion', get_template_directory_uri() . '/js/accordion.min.js', array(), '1.0.0', true);
+        wp_enqueue_script('uikit_slideshow', get_template_directory_uri() . '/js/slideshow.min.js', array(), '1.0.0', true);
+        wp_enqueue_script('uikit_slideset', get_template_directory_uri() . '/js/slideset.js', array(), '1.0.0', true);
 
 //	/************* My script *****************/
 	wp_enqueue_script('myscript_js', get_template_directory_uri() . '/js/script.js', array(), '1', true);
@@ -84,6 +88,7 @@ function create_post_type() {
 		  'public' => true,
 		  'supports' => array('title','thumbnail'),
 		  'hierarchical' => false,
+                  'has_archive' => true
 		)
 	);
          register_post_type( 'news',
@@ -94,6 +99,7 @@ function create_post_type() {
 		  'public' => true,
 		  'supports' => array('title','editor','thumbnail'),
 		  'hierarchical' => false,
+                   'has_archive' => true
 		)
 	);
 	/*register_post_type( 'Produits',
@@ -116,5 +122,8 @@ function my_add_excerpts_to_pages() {
      //add_post_type_support( 'news', 'excerpt' );
 }
 //set_post_thumbnail_size( 300, 300 );
-
+function wpdocs_custom_excerpt_length( $length ) {
+    return 10;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 

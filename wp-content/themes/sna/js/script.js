@@ -145,7 +145,8 @@
 var map = "";
 function initMap() {
     var mapDiv = document.getElementById('map');
-    if(mapDiv.length != 0) {
+    console.log(mapDiv);
+    if(mapDiv != null ) {
 	//var mapDiv = document.getElementById('map');
 	map = new google.maps.Map(mapDiv, {
 	    center: {lat: 36.798711, lng: 10.185847},
