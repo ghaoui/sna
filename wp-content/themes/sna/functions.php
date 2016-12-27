@@ -32,13 +32,15 @@ wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), 
         wp_enqueue_script('uikit_accordion', get_template_directory_uri() . '/js/accordion.min.js', array(), '1.0.0', true);
         wp_enqueue_script('uikit_slideshow', get_template_directory_uri() . '/js/slideshow.min.js', array(), '1.0.0', true);
         wp_enqueue_script('uikit_slideset', get_template_directory_uri() . '/js/slideset.js', array(), '1.0.0', true);
+        wp_enqueue_script('newsbox', get_template_directory_uri() . '/js/jquery.bootstrap.newsbox.min.js', array(), '1.0.0', true);
 
 //	/************* My script *****************/
+        wp_enqueue_script('maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDS23LOuwI9Ar-5m08oB9qf8kqXw4PbEOs', array(), '1', true);
 	wp_enqueue_script('myscript_js', get_template_directory_uri() . '/js/script.js', array(), '1', true);
 	wp_localize_script('myscript_js', 'ajaxurl', admin_url( 'admin-ajax.php' ));
         wp_localize_script('myscript_js', 'urlimage', get_bloginfo('stylesheet_directory').'/images/');
 
-        wp_enqueue_script('maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDS23LOuwI9Ar-5m08oB9qf8kqXw4PbEOs&callback=initMap', array(), '1', true);
+        
 //
 }
 add_action( 'wp_enqueue_scripts', 'my_assets' );
@@ -99,7 +101,9 @@ function create_post_type() {
 		  'public' => true,
 		  'supports' => array('title','editor','thumbnail'),
 		  'hierarchical' => false,
-                   'has_archive' => true
+                  'has_archive' => true,
+                  'taxonomies'          => array( 'category' ),
+
 		)
 	);
 	/*register_post_type( 'Produits',
@@ -127,3 +131,28 @@ function wpdocs_custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
+add_action( 'wp_ajax_get_local', 'get_local' );
+add_action( 'wp_ajax_nopriv_get_local', 'get_local' );
+function get_local(){
+	$args = array(
+	    'page_id' => 98
+	);
+	$the_query = new WP_Query($args);
+	$local = array();
+	$i = 0;
+	if ( $the_query->have_posts() ) :
+	while ( $the_query->have_posts() ) : $the_query->the_post(); 
+        if( have_rows('sites') ):
+        while( have_rows('sites') ): the_row(); 
+		$local[$i][] = get_sub_field('titre');
+		$local[$i][] = floatval(get_sub_field('lat'));
+		$local[$i][] = floatval(get_sub_field('long'));
+		$i++;
+        endwhile; 
+        endif;
+	endwhile; 
+	wp_reset_postdata();
+	endif;	
+	echo json_encode($local);
+	die();
+}

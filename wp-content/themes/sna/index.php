@@ -64,6 +64,14 @@
     
 </section>
 <section class="assurance" id="object" data-uk-scrollspy="{initcls:'uk-scrollspy-init-inview'}">
+    <?php 
+        $args  = array(
+            'page_id' => 100,
+        );
+        $the_query = new WP_Query( $args ); 
+        if ( $the_query->have_posts() ) :
+            while ( $the_query->have_posts() ) : $the_query->the_post(); 
+    ?>
     <div class="container">
         <div class="text-center uk-margin-large-bottom">
             <h3 class="title-primary white">Assurance qualité</h3>
@@ -88,45 +96,32 @@
         </div>
         <div class="row uk-margin-large-top">
             <div class="col-lg-12 text-center ">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.
-                </p>
+               <?php the_excerpt();?>
             </div>
         </div>
     </div>
+    <?php
+            endwhile;
+        endif;
+    ?>
 </section>
 <section class="sites" id="sites">
     <div class="text-center uk-margin-bottom">
         <h3 class="title-primary">SITES DE PRODUCTION</h3>
     </div>
-    <div class="content">
-        <div class="left-section" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.</p>
-        </div>
-        <div class="right-section" data-uk-scrollspy="{cls:'uk-animation-slide-right'}" >
-            <div data-uk-scrollspy="{cls:'uk-animation-fade', target: '.anim', delay: 1000}" data-uk-check-display>
-                <div class="top-image anim">
-                    <img src="<?php bloginfo('stylesheet_directory'); ?>/images/sites.png">
-                </div>
-                <div class="right-content">
-                    <div class="left-text anim">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate voluptatum, perspiciatis nemo beatae sapiente facilis, possimus debitis error voluptatibus natus officiis omnis cum. Facere, temporibus aliquid porro quos nam officiis.</p>
-                    </div>
-                    <div class="right-image anim">
-                        <img src="<?php bloginfo('stylesheet_directory'); ?>/images/sites2.png">
-                    </div>
-                </div>
-            </div>                
-        </div>
-    </div>        
+    <?php 
+        $args  = array(
+            'page_id' => 98,
+        );
+        $the_query = new WP_Query( $args ); 
+        if ( $the_query->have_posts() ) :
+            while ( $the_query->have_posts() ) : $the_query->the_post(); 
+    ?>
+        <?php the_content();?>
+    <?php
+            endwhile;
+        endif;
+    ?>
 </section>
 <section class="gallery" id="gallery" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.anim', delay: 500}">
     <div class="text-center uk-margin-bottom">

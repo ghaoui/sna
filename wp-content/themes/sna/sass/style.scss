@@ -824,3 +824,226 @@ footer{
         }
     }            
 }
+#production_map{
+    height: 600px;
+}
+.content-assurance{
+    padding-top: 30px;
+    padding-bottom: 45px;
+    margin-top: 45px;
+    margin-bottom: 45px;
+    background-color: #1c7040;
+    .excerpt{
+        color: #fff;
+        text-align: center;
+        margin-bottom: 45px;
+        font-size: 16px;
+    }
+    .text-knob {
+        font-size: 18px;
+        margin-top: 15px;
+        color: #fff;
+    }
+}
+.content-assurance-content{
+    h3{
+        color: #1c7040;
+        font-weight: 700;
+        font-size: 22px;
+    }
+    p{
+        text-align: justify;
+        font-size: 18px;
+    }
+}
+.content-contact{
+    margin-top: 45px;
+    padding-top: 30px;
+    .contact{
+        display: flex;
+        justify-content: center;
+        .contact-left{
+            width: 50%;
+            padding-left: 45px;
+            padding-right: 50px;
+            background-color: #f2f2f2;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            address{
+                h5{
+                    color: #1c7040;
+                    font-weight: 700;
+                    font-size: 22px;
+                }
+                p{
+                    font-size: 16px;
+                    a{
+                        color: #333;
+                        &:hover{
+                            text-decoration: none;
+                        }
+                        &.url{
+                            font-size: 18px;
+                            color: #1c7040;
+                        }
+                    }
+                }
+            }
+        }
+        .contact-right{
+            width: 50%;
+            position: relative;
+            #map{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+.content-contact-form{
+    margin-top: 45px;
+    .form-container{
+        padding-left: 30px;
+        padding-right: 30px;
+        form{
+            input,
+            textarea{
+                width: 100%;
+                background-color: transparent;
+                border: 1px solid #000;
+                padding: 10px;
+                font-size: 18px;
+                font-family: 'roboto';
+                &[type="submit"]{
+                    background-color: #ea3437;
+                    color: #fff;
+                    border: none;
+                    font-size: 28px;
+                    font-weight: 700;
+                    padding: 4px;
+                    border: 1px solid #ea3437;
+                    transition: all .7s;
+                    &:hover{
+                        background-color: transparent;
+                        color: #ea3437;
+                    }
+                    display: block;
+                    width: 150px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+            p{
+                margin-top:0;
+            }
+        }
+    }        
+}
+.content-production{
+    margin-top: 45px;
+    .production-container{
+        display: flex;
+        justify-content: center;
+        .production-left{
+            width: 50%;
+        }
+        .production-right{
+            width: 50%;
+            padding-left: 15px;
+            padding-right: 15px;
+            .panel{
+                margin-bottom: 0;
+                border: none;
+                box-shadow: none;
+            }
+            .panel-heading{
+                display: none;
+            }
+            .panel-body{
+               #locations{
+                   list-style: none;
+                   padding-left: 0;
+                   overflow-y: visible !important;
+                   height: auto !important;
+                   li{
+                       background-color: #f8f8f8;
+                       border-bottom: 1px solid #e0e0e0;
+                       a{
+                           display: flex;
+                           padding-top: 15px;
+                           padding-bottom: 15px;
+                           .icon{
+                               height: 72px;
+                               width: 100px;
+                               background-image: url(images/icon-location.png);
+                               background-repeat: no-repeat;
+                               background-position: center;
+                           }
+                           .local{
+                               color: #1c7040;
+                               font-size: 18px;
+                               width: calc(100% - 100px);
+                               .adresse{
+                                   display: none;
+                                   
+                               }
+                           }
+                       }
+                       &:hover{
+                           background-color: #1c7040;
+                           a{
+                               text-decoration: none;
+                               .local{
+                                   color: #fff;
+                                   .adresse{
+                                        display: block;
+                                    }
+                               }
+                               .icon{
+                                   background-image: url(images/icon-location-hover.png);
+                               }
+                           }
+                       }
+                   }
+                }
+            }
+            .panel-footer{
+                padding: 0;
+                background-color: transparent;
+                border: none;
+                ul{
+                    display: flex;
+                    justify-content: center;
+                    list-style: none;
+                    padding-left: 0;
+                    li{
+                        a{
+                            width: 72px;
+                            height: 38px;
+                            display: block;
+                            &.prev{
+                                background-image: url(images/bottom.png);
+                            }
+                            &.next{
+                                background-image: url(images/up.png);
+                            }
+                        }
+                    }
+                }
+            }  
+        }
+    }    
+}
+
+.content-production-content{
+    >h3{
+        width: 50%;
+        background-color: #1c7040;
+        color: #fff;
+        font-weight: 700;
+        font-size: 24px;
+        padding: 10px 45px;
+        margin-bottom: 0;
+    }
+}

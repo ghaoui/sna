@@ -1,10 +1,19 @@
 <?php get_header(); ?>
-<?php 
-    if ( have_posts() ) :
-        while ( have_posts() ) : the_post();
-?>
 <section class="content-news">
     <div class="container-fluid">
+        <?php 
+
+$args  = array(
+                            'post_type' => 'news',
+                            'cat' =>  get_cat_ID(single_cat_title('',false)),
+                            'order' => 'DESC',
+                            'posts_per_page' => 1
+                        );
+
+ $the_query = new WP_Query( $args );
+    if ( $the_query->have_posts() ) :
+                            while ( $the_query->have_posts() ) : $the_query->the_post(); 
+   ?>
         <div class="text-center uk-margin-large-bottom">
             <h3 class="title-primary red">ACTUALITÉS</h3>
         </div>
@@ -19,6 +28,10 @@
                 </div>
             </div>
         </div> 
+        <?php 
+        endwhile;
+    endif;
+?>
         <div class="border uk-margin-large-bottom">
             <div class="autre">Autres articles</div>
         </div>
@@ -30,7 +43,8 @@
                         $args  = array(
                             'post_type' => 'news',
                             'posts_per_page' => -1,
-                            'order' => 'DESC'
+                            'order' => 'DESC',
+                            'cat' =>  get_cat_ID(single_cat_title('',false)),
                         );
                         $the_query = new WP_Query( $args ); 
                         if ( $the_query->have_posts() ) :
@@ -57,8 +71,5 @@
         </div>
     </div>
 </section>
-<?php 
-        endwhile;
-    endif;
-?>
+
 <?php get_footer(); ?>

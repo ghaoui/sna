@@ -139,10 +139,31 @@
             }, 1200);
             return false;
     });
+initMap();
+initMapProduction($);
 
+        $("#locations").bootstrapNews({
+            newsPerPage: 4,
+            autoplay: false,
+             autoplay: true,
+             pauseOnHover: true,
+            onToDo: function () {
+                console.log(this);
+            }
+        });
+
+        $('#locations').delegate('.news-item a', 'click', function(e){    
+            e.preventDefault();
+            //alert('salut');
+            production_map.setZoom(14);
+            lat = $(this).data('lat');
+            long = $(this).data('long');
+            production_map.setCenter(new google.maps.LatLng(lat, long));
+        });
 });
 })(jQuery);
 var map = "";
+var production_map = "";
 function initMap() {
     var mapDiv = document.getElementById('map');
     console.log(mapDiv);
@@ -155,4 +176,80 @@ function initMap() {
 	});
           //marker.addListener('click', toggleBounce);
     }
+}
+
+function initMapProduction($) {
+    var mapDivs = document.getElementById('production_map');
+    console.log(mapDivs);
+    if(mapDivs != null ) {
+	//var mapDiv = document.getElementById('map');
+	production_map = new google.maps.Map(mapDivs, {
+	    center: {lat: 36.798711, lng: 10.185847},
+	    zoom: 22,
+	    disableDefaultUI: true
+	});
+          //marker.addListener('click', toggleBounce);
+          
+          var address = "Tunisia";
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode( { 'address': address}, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    production_map.setCenter(results[0].geometry.location);
+                    production_map.fitBounds(results[0].geometry.bounds);
+                } else {
+                    alert("Geocode was not successful for the following reason: " + status);
+                }
+            });
+            
+            $.ajax({
+	          url: ajaxurl,
+	          type: 'post',
+	          data: {
+	            action : "get_local",         
+	          },
+	          success: function (data) {
+	          	poulinas = JSON.parse(data);
+	          	setMarkers(production_map, poulinas); 
+	          },
+	          error: function (xhr, ajaxOptions, thrownError) {
+	                console.log(xhr.status);
+	                console.log(xhr.responseText);
+	                console.log(thrownError);
+	            },
+	            beforeSend : function(){
+	            	//alert('salut');
+	            },
+	            complete : function(){
+	            	//alert('fin');
+	            }
+	        });
+    }
+}
+function setMarkers(map, poulinas) {
+    var infowindow= new google.maps.InfoWindow({
+		    content: 'holding...',
+		});
+                var markers = [];
+	for (var i = 0; i < poulinas.length; i++) {
+		console.log(poulinas.length);
+		var image = urlimage + '/marker.png';
+		//if(pos == i) image = 'http://poulina.streamerzweb.com/wp-content/themes/poulina/images/anchor-red.png';
+	    var poulina = poulinas[i];
+	    
+	    markers[i]= new google.maps.Marker({
+	      position: {lat: poulina[1], lng: poulina[2]},
+	      map: map,
+	      icon: image,
+	      title: poulina[0],
+	      animation: google.maps.Animation.DROP,
+	      //zIndex: poulina[3]
+	    });
+                var content = poulina[i];
+                markers[i].addListener('click',(function(i){
+                    return function(){
+                        infowindow.setContent('<b>'+poulinas[i][0]+'</b> - '+poulinas[i][0]);
+                        infowindow.open(map, markers[i]);
+                    }
+                }(i)));
+	  }
 }
