@@ -110,7 +110,8 @@ header{
 nav{
     padding-top: 15px;
     display: flex;
-    .menu-main-menu-container{
+    .menu-main-menu-container,
+    .menu-interne-menu-container{
         width: 85%;
         .menu{
             display: flex;
@@ -622,11 +623,20 @@ footer{
                     font-weight: 300;
                     transition: all .7s;
                 } 
+                img.hover{
+                    display: none;
+                }
                 &:hover{
                     text-decoration: none;
                     .title{
                         background-color: #1c7040;
                         color: #fff;
+                    }
+                    img.hover{
+                        display: inline-block;
+                    }
+                    img:not(.hover){
+                        display: none;
                     }
                 }
             }  
@@ -634,6 +644,12 @@ footer{
                 .title{
                     background-color: #1c7040;
                     color: #fff;
+                }
+                img.hover{
+                    display: inline-block;
+                }
+                img:not(.hover){
+                    display: none;
                 }
             }
         }
@@ -691,7 +707,15 @@ footer{
                 figure{
                     text-align: center;
                 }
-            }
+            }            
+        }
+        .uk-dotnav{
+            display: block;
+            width: 0;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            height: 0;
         }
         .uk-slidenav{
             position: absolute;
@@ -822,7 +846,29 @@ footer{
                 }
             }
         }
-    }            
+    }  
+    .category{
+        background-color: #f2f2f2;
+        h4{
+            background-color: #1c7040;
+            color: #fff;
+            font-size: 22px;
+            text-align: center;
+            font-weight: 700;
+            padding: 10px 0;
+        }
+        .cat-item{
+            list-style: none;
+            padding-left: 30px;
+            a{
+                color: #1c7040;
+                font-size: 18px;
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
 }
 #production_map{
     height: 600px;

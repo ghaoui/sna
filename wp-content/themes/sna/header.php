@@ -40,7 +40,7 @@
         </div>
     </header>
     <nav>
-        <?php wp_nav_menu(); ?>
+        <?php if(is_front_page())wp_nav_menu(array('theme_location'=>'home')); else wp_nav_menu(array('theme_location'=>'interne')); ?>
         <div class="search">
             <?php get_search_form();?>
         </div>

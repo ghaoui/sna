@@ -160,6 +160,16 @@ initMapProduction($);
             long = $(this).data('long');
             production_map.setCenter(new google.maps.LatLng(lat, long));
         });
+        $('.content-product .uk-accordion .uk-accordion-content ul li a').click(function(e){
+            e.preventDefault();
+            var cpt = $(this).data('i');
+            console.log(cpt);
+            $( '.uk-slidenav-position .uk-dotnav li[data-uk-slideshow-item="'+cpt+'"] a').trigger( "click" );
+            //console.log($( '.uk-slidenav-position .uk-dotnav li[data-uk-slideshow-item="'+cpt+'"] a'));
+                    $('.item a').each(function(){
+                        $(this).trigger('hover');
+                    });
+        });
 });
 })(jQuery);
 var map = "";

@@ -22,6 +22,7 @@ $idPost = get_the_ID();
                 <a href="<?php the_permalink();?>">
                     <figure>
                         <?php the_post_thumbnail();?>
+                        <img src="<?php the_field('image_hover');?>" class="hover">
                     </figure>
                     <div class="title"><?php the_title();?></div>
                 </a>
@@ -41,6 +42,7 @@ $idPost = get_the_ID();
                             'post_type' => 'products',
                             'posts_per_page' => 1,
                         );
+                        $i = 0;
                         $the_query = new WP_Query( $args ); 
                         if ( $the_query->have_posts() ) :
                             while ( $the_query->have_posts() ) : $the_query->the_post(); 
@@ -56,9 +58,10 @@ $idPost = get_the_ID();
                                     while( have_rows('produit') ): the_row(); 
                             ?>
                             <li>
-                                <a href="#"><?php the_sub_field('titre');?></a>
+                                <a href="#" data-i="<?php echo $i;?>"><?php the_sub_field('titre');?></a>
                             </li>
                             <?php 
+                            $i++;
                                     endwhile;
                                 endif;
                             ?>
@@ -81,6 +84,7 @@ $idPost = get_the_ID();
                                 'post_type' => 'products',
                                 'posts_per_page' => 1,
                             );
+                            $i=0;
                             $the_query = new WP_Query( $args ); 
                             if ( $the_query->have_posts() ) :
                                 while ( $the_query->have_posts() ) : $the_query->the_post(); 
@@ -99,6 +103,7 @@ $idPost = get_the_ID();
                             
                         </li>
                         <?php 
+                        $i++;
                                                 endwhile;
                                             endif;
                                         endwhile;
@@ -109,6 +114,13 @@ $idPost = get_the_ID();
                     </ul>
                     <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
                     <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next"></a>
+                    <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-flex-center">
+                        <?php 
+                            for($j = 0; $j<$i; $j++){
+                        ?>
+                        <li data-uk-slideshow-item="<?php echo $j;?>"><a href=""></a></li>
+                        <?php }?>
+                    </ul>
                 </div>
             </div>
         </div>

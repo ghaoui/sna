@@ -53,9 +53,9 @@ add_action( 'wp_enqueue_scripts', 'my_assets' );
 function awesome_theme_setup() {
 	
 	add_theme_support('menus');	
-	/*register_nav_menu('left', 'Left Navigation');
-	register_nav_menu('right', 'Right Navigation');
-	register_nav_menu('bottom', 'Bottom Navigation');*/
+	register_nav_menu('home', 'Accueil Navigation');
+	register_nav_menu('interne', 'Interne Navigation');
+	/*register_nav_menu('bottom', 'Bottom Navigation');*/
 	
 }
 
@@ -102,7 +102,7 @@ function create_post_type() {
 		  'supports' => array('title','editor','thumbnail'),
 		  'hierarchical' => false,
                   'has_archive' => true,
-                  'taxonomies'          => array( 'category' ),
+                  /*'taxonomies'          => array( 'category' ),*/
 
 		)
 	);

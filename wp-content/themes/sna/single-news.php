@@ -8,15 +8,17 @@
         <div class="text-center uk-margin-large-bottom">
             <h3 class="title-primary red">ACTUALITÉS</h3>
         </div>
-        <div class="text-center uk-margin-large-bottom">
-            <?php the_post_thumbnail();?>
-        </div>
-        <div class="row">
-            <div class="col-lg-4"> <?php wp_list_cats();?></div>
-            <div class="col-lg-8">
-                <div class="content">
-                    <?php the_content();?>
-                </div>
+        
+        <div class="row" >
+            <div class="col-lg-8 col-lg-offset-2">
+
+                    <div class="text-center uk-margin-large-bottom">
+                        <?php the_post_thumbnail();?>
+                    </div>
+                    <div class="content">
+                        <?php the_content();?>
+                    </div>
+
             </div>
         </div> 
         <div class="border uk-margin-large-bottom">
@@ -30,7 +32,7 @@
                         $args  = array(
                             'post_type' => 'news',
                             'posts_per_page' => -1,
-                            'order' => 'DESC'
+                            'order' => 'DESC',
                         );
                         $the_query = new WP_Query( $args ); 
                         if ( $the_query->have_posts() ) :
