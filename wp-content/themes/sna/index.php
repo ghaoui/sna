@@ -26,7 +26,7 @@
             <h3 class="title-primary">NOS PRODUITS</h3>
         </div>
         <div class="text-center uk-margin-large-bottom">
-            <a class="link-all" href="#">Afficher tous les produits</a>
+            <a class="link-all" href="/products/ruminants/">Afficher tous les produits</a>
         </div>
         
         <div class="row" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.item', delay: 300}">
@@ -99,6 +99,9 @@
                <?php the_excerpt();?>
             </div>
         </div>
+        <div class="text-center">
+            <a class="voir-plus" href="/assurance"><span>Afficher Plus</span></a>
+        </div>
     </div>
     <?php
             endwhile;
@@ -108,6 +111,9 @@
 <section class="sites" id="sites">
     <div class="text-center uk-margin-bottom">
         <h3 class="title-primary">SITES DE PRODUCTION</h3>
+    </div>
+    <div class="text-center">
+        <a class="voir-plus" href="/production"><span>Afficher Plus</span></a>
     </div>
     <?php 
         $args  = array(
@@ -122,10 +128,14 @@
             endwhile;
         endif;
     ?>
+    
 </section>
 <section class="gallery" id="gallery" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.anim', delay: 500}">
     <div class="text-center uk-margin-bottom">
         <h3 class="title-primary">GALERIE</h3>
+    </div>
+    <div class="text-center">
+        <a class="voir-plus" href="/gallery"><span>Afficher Plus</span></a>
     </div>
     <div class="uk-grid-width-1-4" data-uk-grid >
         <?php 

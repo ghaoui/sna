@@ -13,10 +13,12 @@
         <!-- Dynamic Grid -->  
         <div class="uk-grid-width-1-4" data-uk-grid="{controls: '#my-id'}">  
             <?php 
+            $paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
             $args  = array(
                 'post_type' => 'gallery',
-                'posts_per_page' => -1,
-                'order' => 'ASC'
+                'posts_per_page' => 3,
+                'order' => 'ASC',
+                'paged' => $paged,
             );
             $the_query = new WP_Query( $args ); 
             if ( $the_query->have_posts() ) :
@@ -31,8 +33,7 @@
                 <?php } ?>            
                 <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom">
                     <a href="<?php echo (get_field('type') == 'image')? get_field('image'):get_field('video');?>" class="" data-uk-lightbox="{group: 'group1'}"></a>
-                </figcaption>
-            
+                </figcaption>            
             </div>
         </div>
         <?php
@@ -40,6 +41,9 @@
             endif;
         ?>
         </div>
+        <div id='page_navigation'></div>
+        <input type="hidden" id="current_page" value="0">
+        <input type="hidden" id="show_per_page" value="6">
     </div>
 </section>
 <?php get_footer(); ?>

@@ -170,7 +170,79 @@ initMapProduction($);
                         $(this).trigger('hover');
                     });
         });
+       /* var grid = UIkit.grid($('#uk-grid'), {
+            controls: '#my-id'
+        });
+         $('#uk-grid').on('beforeupdate.uk.grid', function(e, children) {
+            console.log('salut');
+            pagination();
+            var grid = UIkit.grid($('#uk-grid'), {
+                controls: '#my-id'
+            });
+        });*/
+        
 });
+pagination = function(){
+        //how much items per page to show
+	var show_per_page = 6; 
+	var number_of_items = $('.content-gallery .parent-anim').children().size();
+        console.log(number_of_items);
+	var number_of_pages = Math.ceil(number_of_items/show_per_page);
+	$('#current_page').val(0);
+	$('#show_per_page').val(show_per_page);
+	var navigation_html = '<a class="previous_link" href="javascript:previous();"><span class="glyphicon glyphicon-triangle-left"></span></a>';
+	var current_link = 0;
+	while(number_of_pages > current_link){
+		navigation_html += '<a class="page_link" href="javascript:go_to_page(' + current_link +')" longdesc="' + current_link +'">'+ (current_link + 1) +'</a>';
+		current_link++;
+	}
+	navigation_html += '<a class="next_link" href="javascript:next();"><span class="glyphicon glyphicon-triangle-right"></span></a>';
+	$('#page_navigation').html(navigation_html);
+	$('#page_navigation .page_link:first').addClass('active_page');
+	$('.content-gallery .parent-anim').children().css('display', 'none');
+	$('.content-gallery .parent-anim').children().slice(0, show_per_page).css('display', 'block');
+}
+previous = function(){
+	
+	new_page = parseInt($('#current_page').val()) - 1;
+	//if there is an item before the current active link run the function
+	if($('.active_page').prev('.page_link').length==true){
+		go_to_page(new_page);
+	}
+	
+};
+
+next = function(){
+	new_page = parseInt($('#current_page').val()) + 1;
+	//if there is an item after the current active link run the function
+	if($('.active_page').next('.page_link').length==true){
+		go_to_page(new_page);
+	}
+	
+};
+go_to_page = function(page_num){
+	//get the number of items shown per page
+	var show_per_page = parseInt($('#show_per_page').val());
+	
+	//get the element number where to start the slice from
+	start_from = page_num * show_per_page;
+	
+	//get the element number where to end the slice
+	end_on = start_from + show_per_page;
+	
+	//hide all children elements of content div, get specific items and show them
+	$('.content-gallery .parent-anim').children().css('display', 'none').slice(start_from, end_on).css('display', 'block');
+	
+	/*get the page link that has longdesc attribute of the current page and add active_page class to it
+	and remove that class from previously active page link*/
+	$('.page_link[longdesc=' + page_num +']').addClass('active_page').siblings('.active_page').removeClass('active_page');
+	
+	//update the current page input field
+	$('#current_page').val(page_num);
+};
+
+
+
 })(jQuery);
 var map = "";
 var production_map = "";
