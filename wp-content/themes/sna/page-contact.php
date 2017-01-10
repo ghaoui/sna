@@ -20,6 +20,10 @@
                     E-mail : <a href="mailto:sna@sna.com.tn">sna@sna.com.tn</a><br>
                     <a href="www.sna-web.com" target="_blank" class="url">www.sna-web.com</a>
                 </p>
+                <h5>Usine Nutrimix</h5>
+                <p>Z.I Djebel El Oust -   KM 31 route el fahs, 1111 Zaghouan <br>
+                   Tél.: 70 011 740 - Fax: 72 640 180
+                </p>
             </address>
         </div>
         <div class="contact-right" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">

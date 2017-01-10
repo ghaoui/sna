@@ -180,12 +180,12 @@ initMapProduction($);
                 controls: '#my-id'
             });
         });*/
-        
+        pagination();
 });
 pagination = function(){
         //how much items per page to show
-	var show_per_page = 6; 
-	var number_of_items = $('.content-gallery .parent-anim').children().size();
+	var show_per_page = 8; 
+	var number_of_items = $('.content-gallery .parent-anim').size();
         console.log(number_of_items);
 	var number_of_pages = Math.ceil(number_of_items/show_per_page);
 	$('#current_page').val(0);
@@ -199,8 +199,8 @@ pagination = function(){
 	navigation_html += '<a class="next_link" href="javascript:next();"><span class="glyphicon glyphicon-triangle-right"></span></a>';
 	$('#page_navigation').html(navigation_html);
 	$('#page_navigation .page_link:first').addClass('active_page');
-	$('.content-gallery .parent-anim').children().css('display', 'none');
-	$('.content-gallery .parent-anim').children().slice(0, show_per_page).css('display', 'block');
+	$('.content-gallery .parent-anim').css('display', 'none');
+	$('.content-gallery .parent-anim').slice(0, show_per_page).css('display', 'block');
 }
 previous = function(){
 	
@@ -231,7 +231,7 @@ go_to_page = function(page_num){
 	end_on = start_from + show_per_page;
 	
 	//hide all children elements of content div, get specific items and show them
-	$('.content-gallery .parent-anim').children().css('display', 'none').slice(start_from, end_on).css('display', 'block');
+	$('.content-gallery .parent-anim').css('display', 'none').slice(start_from, end_on).css('display', 'block');
 	
 	/*get the page link that has longdesc attribute of the current page and add active_page class to it
 	and remove that class from previously active page link*/

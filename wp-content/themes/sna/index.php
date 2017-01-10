@@ -19,6 +19,78 @@
         ?>
     </div>
 </section>
+<section class="news" id="news">
+    <div class="container">
+        <div class="text-center uk-margin-bottom">
+            <h3 class="title-primary">Actualités</h3>
+        </div>
+        <?php 
+                $args  = array(
+                    'post_type' => 'news',
+                    'posts_per_page' => 1,
+                    'order' => 'DESC'
+                );
+                $the_query = new WP_Query( $args ); 
+                if ( $the_query->have_posts() ) :
+                    while ( $the_query->have_posts() ) : $the_query->the_post(); 
+            ?>
+        <div class="row news-first">
+            
+            <div class="col-lg-4" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
+                <figure class="uk-overlay uk-overlay-hover">
+                    <?php the_post_thumbnail('', array('class'=>'uk-overlay-spin'));?>
+                    <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom">
+                        <a class="readmoreicon" href="<?php the_permalink();?>"></a>
+                    </figcaption>
+                </figure>                
+            </div>
+            <div class="col-lg-8" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
+                <?php the_content();?>
+            </div>
+            
+        </div>
+        <div class="text-right border">
+            <a href="<?php the_permalink();?>">Lire la suite</a>
+        </div>
+        <?php
+                endwhile;
+            endif; 
+        ?>
+        
+        <div class="row uk-margin-large-top" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.anim', delay: 500}">
+           <?php 
+                $args  = array(
+                    'post_type' => 'news',
+                    'posts_per_page' => 4,
+                    'order' => 'DESC'
+                );
+                $the_query = new WP_Query( $args ); 
+                $i = 0;
+                if ( $the_query->have_posts() ) :
+                    while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                if ( $i!=0 ) :
+            ?> 
+            <div class="col-lg-4 text-center anim">
+                <figure class="uk-overlay uk-overlay-hover">
+                    <?php the_post_thumbnail('', array('class'=>'uk-overlay-spin'));?>
+                    <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom">
+                        <a class="readmoreicon" href="<?php the_permalink();?>"></a>
+                    </figcaption>
+                </figure>
+                <div class="">
+                    <h4><?php the_title();?></h4>
+                    <a class="readmore" href="<?php the_permalink();?>">Lire la suite</a>
+                </div>                    
+            </div>
+            <?php
+            endif;
+            $i++;
+                endwhile;
+            endif; 
+        ?>
+        </div>
+    </div>
+</section>
 <section class="produit" id="produit">
     <div class="bg-grey"></div>
     <div class="container">
@@ -60,8 +132,7 @@
                 endif;
             ?>
         </div>
-    </div>
-    
+    </div>    
 </section>
 <section class="assurance" id="object" data-uk-scrollspy="{initcls:'uk-scrollspy-init-inview'}">
     <?php 
@@ -135,106 +206,43 @@
         <h3 class="title-primary">GALERIE</h3>
     </div>
     <div class="text-center">
-        <a class="voir-plus" href="/gallery"><span>Afficher Plus</span></a>
+        <a class="voir-plus" href="/gallery?filter=all"><span>Afficher Plus</span></a>
     </div>
     <div class="uk-grid-width-1-4" data-uk-grid >
         <?php 
             $args  = array(
                 'post_type' => 'gallery',
-                'posts_per_page' => 12,
+                'posts_per_page' => -1,
                 'order' => 'ASC'
             );
+            $i = 0;
             $the_query = new WP_Query( $args ); 
             if ( $the_query->have_posts() ) :
                 while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                    if( have_rows('groupe_photo') ):
+                            while( have_rows('groupe_photo') ): the_row();
+                                if($i<12):
         ?>
         <div class="uk-overlay-hover parent-anim">
             <div class="anim">
-                <img src="<?php the_field('image');?>" class="uk-overlay-spin">
+                <img src="<?php the_sub_field('image');?>" class="uk-overlay-spin">
                 <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom">
-                    <a href="<?php the_field('image');?>" class="" data-uk-lightbox="{group: 'group1'}"></a>
+                    <a href="<?php the_sub_field('image');?>" class="" data-uk-lightbox="{group: 'group1'}"></a>
                 </figcaption>
             
             </div>
         </div>
         <?php
+                                $i++;
+                            endif;
+                        endwhile;
+                    endif;
                 endwhile;
             endif;
         ?>
     </div>
 </section>
-<section class="news" id="news">
-    <div class="container">
-        <div class="text-center uk-margin-bottom">
-            <h3 class="title-primary">Actualités</h3>
-        </div>
-        <?php 
-                $args  = array(
-                    'post_type' => 'news',
-                    'posts_per_page' => 1,
-                    'order' => 'DESC'
-                );
-                $the_query = new WP_Query( $args ); 
-                if ( $the_query->have_posts() ) :
-                    while ( $the_query->have_posts() ) : $the_query->the_post(); 
-            ?>
-        <div class="row news-first">
-            
-            <div class="col-lg-4" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
-                <figure class="uk-overlay uk-overlay-hover">
-                    <?php the_post_thumbnail('', array('class'=>'uk-overlay-spin'));?>
-                    <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom">
-                        <a class="readmoreicon" href="<?php the_permalink();?>"></a>
-                    </figcaption>
-                </figure>                
-            </div>
-            <div class="col-lg-8" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
-                <?php the_content();?>
-            </div>
-            
-        </div>
-        <div class="text-right border">
-            <a href="<?php the_permalink();?>">Lire la suite</a>
-        </div>
-        <?php
-                endwhile;
-            endif; 
-        ?>
-        
-        <div class="row uk-margin-large-top" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.anim', delay: 500}">
-           <?php 
-                $args  = array(
-                    'post_type' => 'news',
-                    'posts_per_page' => 4,
-                    'order' => 'DESC'
-                );
-                $the_query = new WP_Query( $args ); 
-                $i = 0;
-                if ( $the_query->have_posts() ) :
-                    while ( $the_query->have_posts() ) : $the_query->the_post(); 
-                if ( $i!=0 ) :
-            ?> 
-            <div class="col-lg-4 text-center anim">
-                <figure class="uk-overlay uk-overlay-hover">
-                    <?php the_post_thumbnail('', array('class'=>'uk-overlay-spin'));?>
-                    <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom">
-                        <a class="readmoreicon" href="<?php the_permalink();?>"></a>
-                    </figcaption>
-                </figure>
-                <div class="">
-                    <h4><?php the_title();?></h4>
-                    <a class="readmore" href="<?php the_permalink();?>">Lire la suite</a>
-                </div>                    
-            </div>
-            <?php
-            endif;
-            $i++;
-                endwhile;
-            endif; 
-        ?>
-        </div>
-    </div>
-</section>
+
 <section class="contact">
     <div class="text-center uk-margin-bottom">
         <h3 class="title-primary">CONTACT</h3>
@@ -255,6 +263,10 @@
                         Route de Tunis - km 13 Sidi Salah - Sfax - Tél.: 73 280 400 - Fax : 73 280 409<br>
                         E-mail : <a href="mailto:sna@sna.com.tn">sna@sna.com.tn</a><br>
                         <a href="www.sna-web.com" target="_blank" class="url">www.sna-web.com</a>
+                    </p>
+                    <h5>Usine Nutrimix</h5>
+                    <p>Z.I Djebel El Oust -   KM 31 route el fahs, 1111 Zaghouan <br>
+                       Tél.: 70 011 740 - Fax: 72 640 180<br>
                     </p>
                 </address>
             </div>

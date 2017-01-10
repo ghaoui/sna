@@ -86,7 +86,7 @@ header{
             margin-right: 5px;
             &.facebook{
                 a{
-                    color: #3a559f;
+                    color: #0077B5;
                 }
             }
             &.twitter{
@@ -848,9 +848,10 @@ footer{
     margin-top: 45px;
     .parent-anim{
         overflow: hidden;
+        position: relative;
     }
     .anim{
-        opacity: 0;
+       // opacity: 0;
     }
     .uk-overlay-icon{
         &:before{
@@ -891,6 +892,68 @@ footer{
             }
         }
     }
+    #page_navigation{
+        margin-top: 45px;
+        display: flex;
+        justify-content: center;
+        a{
+            color: #1c7040;
+            font-size: 18px;
+            display: inline-block;
+            margin-left: 5px;
+            margin-right: 5px;
+            transition: all .3s;
+            &:hover,
+            &.active_page{
+                text-decoration: none;
+                transform: scale(1.2);
+            }
+        }
+    }
+    .parent-div-padding{
+        padding-left: 45px;
+        padding-right: 45px;
+        .album{
+            .link-album{
+                .anim{
+                    position: relative;
+                    img{
+                        transition: all .3s;
+                        &:not(:first-child){
+                            position: absolute;
+                        }
+                        &:nth-child(2){
+                            left: -4px;
+                            top: -4px;
+                        }
+                        &:nth-child(3){
+                            left: -8px;
+                            top: -8px;
+                        }
+                        &:nth-child(4){
+                            left: -12px;
+                            top: -12px;
+                        }
+                    }
+                }
+                &:hover{
+                    .anim{
+                        img{
+                            left: 0;
+                            top: 0;
+                        }
+                    }
+                }
+                h5{
+                    color: #1c7040;
+                    font-weight: 700;
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+        
 }
 .content-news{
     margin-top: 45px;
@@ -919,6 +982,8 @@ footer{
                         figure{
                             display: inline-block;
                             position: relative;
+                            max-height: 324px;
+                            overflow: hidden;
                             a{
                                 position: absolute;
                                 right: 0;
@@ -1201,5 +1266,22 @@ footer{
         font-size: 24px;
         padding: 10px 45px;
         margin-bottom: 0;
+    }
+}
+.uk-lightbox-content{
+    .uk-slidenav{
+        display: block;
+        position: absolute;
+        top: calc(50% - 36px);
+        width: 38px;
+        height: 72px;
+        &.uk-slidenav-previous{
+            background-image: url(images/previous.png);
+            left: -45px;
+        }
+        &.uk-slidenav-next{
+            background-image: url(images/next.png);
+                right: -45px;
+        }
     }
 }

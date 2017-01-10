@@ -23,7 +23,7 @@
                 <div class="col-lg-3">
                     <ul class="social  ">
                         <li class="facebook uk-animation-hover uk-animation-scale">
-                            <a href="#" class="uk-icon-facebook-official"></a>
+                            <a href="#" class="uk-icon-linkedin"></a>
                         </li>
                         <li class="twitter uk-animation-hover uk-animation-scale">
                             <a href="#" class="uk-icon-twitter"></a>
