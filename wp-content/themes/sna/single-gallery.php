@@ -4,7 +4,10 @@
         <div class="text-center uk-margin-large-bottom">
             <h3 class="title-primary red">GALERIE</h3>
         </div>
-        
+        <ul class="uk-breadcrumb">
+            <li><a href="/gallery">GALERIE</a></li>
+            <li class="uk-active"><span><?php the_title();?></span></li>
+        </ul>
         <!-- Dynamic Grid -->  
         <div class="uk-grid uk-grid-width-1-4 uk-grid-collapse">  
             <?php 

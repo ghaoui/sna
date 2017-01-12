@@ -953,7 +953,20 @@ footer{
             }
         }
     }
-        
+    .uk-breadcrumb{
+        li{
+            font-size: 20px;
+            font-weight: 700;
+            
+            &.uk-active{
+                color: #1c7040;
+            }
+            a{
+                text-decoration: none;
+                color: #D9453A;
+            }
+        }
+    }
 }
 .content-news{
     margin-top: 45px;
