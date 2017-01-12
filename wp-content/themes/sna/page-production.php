@@ -23,10 +23,11 @@
                                     <ul id="locations">
                                         <?php 
                                             if( have_rows('sites') ):
+                                                $i = 0;
                                                 while( have_rows('sites') ): the_row(); 
                                         ?>
                                         <li class="news-item">
-                                            <a href="#" data-lat="<?php echo floatval(get_sub_field('lat'));?>" data-long="<?php echo floatval(get_sub_field('long'));?>">
+                                            <a href="#" data-lat="<?php echo floatval(get_sub_field('lat'));?>" data-long="<?php echo floatval(get_sub_field('long'));?>" data-cpt="<?php echo $i; ?>">
                                                 <div class="icon"></div>
                                                 <div class="local">
                                                     <div class="titre"><?php the_sub_field('titre');?></div>
@@ -37,6 +38,7 @@
                                             <div class="titre"></div>
                                         </li>
                                         <?php 
+                                        $i++;
                                                 endwhile;
                                             endif;
                                         ?>
@@ -54,9 +56,28 @@
 
 </section>
 
-<section class="content-production-content sites">
+<section class="content-production-content sites" id="section-production-content">
     <h3>DESCRIPTION</h3>
-    <?php the_content();?>
+    <ul class="content">
+        <?php 
+            if( have_rows('sites') ):
+                $i = 0;
+                while( have_rows('sites') ): the_row(); 
+        ?>
+        <li compteur="<?php echo $i; ?>">
+            <div class="left-section">
+                <?php the_sub_field('content');?>
+            </div>
+            <div class="right-section">
+                <img src="<?php the_sub_field('image');?>">
+            </div>
+        </li>
+        <?php 
+        $i++;
+                endwhile;
+            endif;
+        ?>
+    </ul>
 </section>
 <?php 
         endwhile;

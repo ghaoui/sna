@@ -1280,6 +1280,11 @@ footer{
         padding: 10px 45px;
         margin-bottom: 0;
     }
+    .content{
+        li:not(:first-child){
+            display: none;
+        }
+    }
 }
 .uk-lightbox-content{
     .uk-slidenav{

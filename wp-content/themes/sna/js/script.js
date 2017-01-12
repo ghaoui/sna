@@ -158,7 +158,20 @@ initMapProduction($);
             production_map.setZoom(14);
             lat = $(this).data('lat');
             long = $(this).data('long');
+            i = $(this).data('cpt');
             production_map.setCenter(new google.maps.LatLng(lat, long));
+            
+            
+            
+            var the_id = "#section-production-content";
+            console.log(the_id)
+            $('html, body').animate({
+                    scrollTop: ($(the_id).offset().top - 20)                    
+            }, 1200);
+            $(".content-production-content .content li").hide();
+            $(".content-production-content .content li[compteur="+i+"]").show(1300);
+
+            return false;
         });
         $('.content-product .uk-accordion .uk-accordion-content ul li a').click(function(e){
             e.preventDefault();

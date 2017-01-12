@@ -1471,8 +1471,12 @@ footer .sub-footer .social li a {
   padding: 10px 45px;
   margin-bottom: 0;
 }
+/* line 1284, sass/style.scss */
+.content-production-content .content li:not(:first-child) {
+  display: none;
+}
 
-/* line 1285, sass/style.scss */
+/* line 1290, sass/style.scss */
 .uk-lightbox-content .uk-slidenav {
   display: block;
   position: absolute;
@@ -1480,12 +1484,12 @@ footer .sub-footer .social li a {
   width: 38px;
   height: 72px;
 }
-/* line 1291, sass/style.scss */
+/* line 1296, sass/style.scss */
 .uk-lightbox-content .uk-slidenav.uk-slidenav-previous {
   background-image: url(images/previous.png);
   left: -45px;
 }
-/* line 1295, sass/style.scss */
+/* line 1300, sass/style.scss */
 .uk-lightbox-content .uk-slidenav.uk-slidenav-next {
   background-image: url(images/next.png);
   right: -45px;
