@@ -13,33 +13,44 @@
                 <div class="excerpt"><?php the_excerpt();?></div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-offset-1 col-lg-10">
-                <div class="row">
-                    <?php 
+
+                <div class="row" data-uk-grid-match="{target: '.target'}">
+                    <div class="col-lg-4">
+                        <div class="target">
+                            <?php the_post_thumbnail();?>
+                        </div>                            
+                    </div>
+                    <div class="col-lg-8">                    
+                    <div class="uk-grid target">
+                        <div class="uk-width-medium-1-2">
+                            <ul class="uk-tab uk-tab-left" data-uk-tab="{connect:'#my-id'}">
+                              <?php 
                         if( have_rows('qnob') ):
                             while( have_rows('qnob') ): the_row(); 
-                    ?>
-                    <div class="col-lg-4 text-center">
-                        <input type="text" class="dial"  data-linecap=round data-fgColor="<?php the_sub_field('couleur')?>" value="<?php the_sub_field('value')?>" data-thickness=".2"  data-readOnly=true data-bgColor="#354357" data-inputColor="#ffffff">
-                        <div class="text-knob"><?php the_sub_field('titre')?></div>
+                        ?>  
+                                <li><a><?php the_sub_field("titre")?></a></li>
+                        <?php 
+                                endwhile;
+                            endif;
+                        ?>
+                            </ul>
+                        </div>
+                        <div class="uk-width-medium-1-2">
+                            <ul id="my-id" class="uk-switcher">
+                                <?php
+                                if( have_rows('qnob') ):
+                                    while( have_rows('qnob') ): the_row(); 
+                                ?>  
+                                        <li><?php the_sub_field("text")?></li>
+                                <?php 
+                                        endwhile;
+                                    endif;
+                                ?>
+                            </ul>
+                        </div>
                     </div>
-                    <?php 
-                            endwhile;
-                        endif;
-                    ?>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="content-assurance-content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <?php the_content();?>
-            </div>
-        </div>
+                </div>
     </div>
 </section>
 <?php 

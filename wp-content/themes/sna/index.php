@@ -147,24 +147,49 @@
         <div class="text-center uk-margin-large-bottom">
             <h3 class="title-primary white">Assurance qualité</h3>
         </div>
-        <div class="row">
-            <div class="col-lg-offset-1 col-lg-10">
-                <div class="row">
-                    <div class="col-lg-4 text-center">
-                        <input type="text" class="dial"  data-linecap=round data-fgColor="#ffc875" value="74" data-thickness=".2"  data-readOnly=true data-bgColor="#354357" data-inputColor="#ffffff">
-                        <div class="text-knob">Lorem Ipsum</div>
+        <div class="row" data-uk-grid-match="{target: '.target'}">
+                    <div class="col-lg-4">
+                        <div class="target">
+                            <?php the_post_thumbnail();?>
+                        </div>                            
                     </div>
-                    <div class="col-lg-4 text-center">
-                        <input type="text" class="dial"  data-linecap=round data-fgColor="#f3595b" value="46" data-thickness=".2"  data-readOnly=true data-bgColor="#354357" data-inputColor="#ffffff">
-                        <div class="text-knob">Lorem Ipsum</div>
-                    </div>
-                    <div class="col-lg-4 text-center">
-                        <input type="text" class="dial"  data-linecap=round data-fgColor="#83d7c0" value="62" data-thickness=".2"  data-readOnly=true data-bgColor="#354357" data-inputColor="#ffffff">
-                        <div class="text-knob">Lorem Ipsum</div>
+                    <div class="col-lg-8">                    
+                    <div class="uk-grid target">
+                        <div class="uk-width-medium-1-2">
+                            <ul class="uk-tab uk-tab-left" data-uk-tab="{connect:'#my-id'}">
+                              <?php 
+                        if( have_rows('qnob') ):
+                            while( have_rows('qnob') ): the_row(); 
+                        ?>  
+                                <li><a><?php the_sub_field("titre")?></a></li>
+                        <?php 
+                                endwhile;
+                            endif;
+                        ?>
+                            </ul>
+                        </div>
+                        <div class="uk-width-medium-1-2">
+                            <ul id="my-id" class="uk-switcher">
+                                <?php
+                                if( have_rows('qnob') ):
+                                    while( have_rows('qnob') ): the_row(); 
+                                ?>  
+                                        <li>
+                                            <?php //the_sub_field("text")?>
+                                            <?php if (strlen(get_sub_field("text")) > 90) {
+                                                echo substr(get_sub_field("text"), 0, 90) . '...'; } else {
+                                                    the_sub_field("text");
+                                                } ?>
+                                        </li>
+                                <?php 
+                                        endwhile;
+                                    endif;
+                                ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                </div>
         <div class="row uk-margin-large-top">
             <div class="col-lg-12 text-center ">
                <?php the_excerpt();?>
