@@ -1239,13 +1239,100 @@ footer .sub-footer .social li a {
 .content-news .category .cat-item a:hover {
   text-decoration: none;
 }
+/* line 1092, sass/style.scss */
+.content-news .show-more {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #1c7040;
+  border: 1px solid #1c7040;
+  background: none;
+  font-weight: 700;
+  transition: all 0.3s;
+  position: relative;
+}
+/* line 1101, sass/style.scss */
+.content-news .show-more span {
+  position: relative;
+  z-index: 1;
+}
+/* line 1105, sass/style.scss */
+.content-news .show-more:after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+  width: 0;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #1c7040;
+}
+/* line 1118, sass/style.scss */
+.content-news .show-more:hover {
+  text-decoration: none;
+  color: #fff;
+}
+/* line 1121, sass/style.scss */
+.content-news .show-more:hover:after {
+  width: 100%;
+}
+/* line 1127, sass/style.scss */
+.content-news .caption h3 {
+  color: #000;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+}
+/* line 1135, sass/style.scss */
+.content-news .right-news .dernier-news {
+  color: #000;
+  font-weight: 600;
+  font-size: 20px;
+}
+/* line 1140, sass/style.scss */
+.content-news .right-news .news-item-list {
+  padding-left: 0;
+  list-style: none;
+}
+/* line 1143, sass/style.scss */
+.content-news .right-news .news-item-list li {
+  margin-bottom: 15px;
+}
+/* line 1146, sass/style.scss */
+.content-news .right-news .news-item-list li a:hover {
+  text-decoration: none;
+}
+/* line 1150, sass/style.scss */
+.content-news .right-news .news-item-list li a:hover .item .block2 .title {
+  color: #1c7040;
+}
+/* line 1156, sass/style.scss */
+.content-news .right-news .news-item-list li a .item {
+  display: flex;
+}
+/* line 1158, sass/style.scss */
+.content-news .right-news .news-item-list li a .item .block1 {
+  width: 20%;
+  margin-right: 15px;
+  border: 2px solid #1c7040;
+  border-radius: 10px;
+  overflow: hidden;
+}
+/* line 1166, sass/style.scss */
+.content-news .right-news .news-item-list li a .item .block2 .title {
+  font-size: 16px;
+  color: #000;
+  font-weight: 600;
+}
 
-/* line 1093, sass/style.scss */
+/* line 1178, sass/style.scss */
 #production_map {
   height: 600px;
 }
 
-/* line 1096, sass/style.scss */
+/* line 1181, sass/style.scss */
 .content-assurance {
   padding-top: 30px;
   padding-bottom: 45px;
@@ -1253,74 +1340,74 @@ footer .sub-footer .social li a {
   margin-bottom: 45px;
   background-color: #1c7040;
 }
-/* line 1102, sass/style.scss */
+/* line 1187, sass/style.scss */
 .content-assurance .excerpt {
   color: #fff;
   text-align: center;
   margin-bottom: 45px;
   font-size: 16px;
 }
-/* line 1108, sass/style.scss */
+/* line 1193, sass/style.scss */
 .content-assurance .text-knob {
   font-size: 18px;
   margin-top: 15px;
   color: #fff;
 }
-/* line 1115, sass/style.scss */
+/* line 1200, sass/style.scss */
 .content-assurance .uk-tab li a {
   color: #fff;
   font-size: 18px;
 }
-/* line 1118, sass/style.scss */
+/* line 1203, sass/style.scss */
 .content-assurance .uk-tab li a:hover {
   background-color: #1c7040;
   border-right-color: transparent;
   border-right-width: 0;
 }
-/* line 1126, sass/style.scss */
+/* line 1211, sass/style.scss */
 .content-assurance .uk-tab li.uk-active a {
   background-color: #1c7040;
 }
-/* line 1133, sass/style.scss */
+/* line 1218, sass/style.scss */
 .content-assurance .uk-grid.target {
   align-items: center;
 }
-/* line 1137, sass/style.scss */
+/* line 1222, sass/style.scss */
 .content-assurance .uk-switcher {
   color: #fff;
 }
-/* line 1139, sass/style.scss */
+/* line 1224, sass/style.scss */
 .content-assurance .uk-switcher p {
   font-size: 18px;
 }
-/* line 1140, sass/style.scss */
+/* line 1225, sass/style.scss */
 .content-assurance .uk-switcher p strong {
   font-size: 22px;
 }
 
-/* line 1148, sass/style.scss */
+/* line 1233, sass/style.scss */
 .content-assurance-content h3 {
   color: #1c7040;
   font-weight: 700;
   font-size: 22px;
 }
-/* line 1153, sass/style.scss */
+/* line 1238, sass/style.scss */
 .content-assurance-content p {
   text-align: justify;
   font-size: 18px;
 }
 
-/* line 1158, sass/style.scss */
+/* line 1243, sass/style.scss */
 .content-contact {
   margin-top: 45px;
   padding-top: 30px;
 }
-/* line 1161, sass/style.scss */
+/* line 1246, sass/style.scss */
 .content-contact .contact {
   display: flex;
   justify-content: center;
 }
-/* line 1164, sass/style.scss */
+/* line 1249, sass/style.scss */
 .content-contact .contact .contact-left {
   width: 50%;
   padding-left: 45px;
@@ -1329,51 +1416,51 @@ footer .sub-footer .social li a {
   padding-top: 30px;
   padding-bottom: 30px;
 }
-/* line 1172, sass/style.scss */
+/* line 1257, sass/style.scss */
 .content-contact .contact .contact-left address h5 {
   color: #1c7040;
   font-weight: 700;
   font-size: 22px;
 }
-/* line 1177, sass/style.scss */
+/* line 1262, sass/style.scss */
 .content-contact .contact .contact-left address p {
   font-size: 16px;
 }
-/* line 1179, sass/style.scss */
+/* line 1264, sass/style.scss */
 .content-contact .contact .contact-left address p a {
   color: #333;
 }
-/* line 1181, sass/style.scss */
+/* line 1266, sass/style.scss */
 .content-contact .contact .contact-left address p a:hover {
   text-decoration: none;
 }
-/* line 1184, sass/style.scss */
+/* line 1269, sass/style.scss */
 .content-contact .contact .contact-left address p a.url {
   font-size: 18px;
   color: #1c7040;
 }
-/* line 1192, sass/style.scss */
+/* line 1277, sass/style.scss */
 .content-contact .contact .contact-right {
   width: 50%;
   position: relative;
 }
-/* line 1195, sass/style.scss */
+/* line 1280, sass/style.scss */
 .content-contact .contact .contact-right #map {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-/* line 1203, sass/style.scss */
+/* line 1288, sass/style.scss */
 .content-contact-form {
   margin-top: 45px;
 }
-/* line 1205, sass/style.scss */
+/* line 1290, sass/style.scss */
 .content-contact-form .form-container {
   padding-left: 30px;
   padding-right: 30px;
 }
-/* line 1209, sass/style.scss */
+/* line 1294, sass/style.scss */
 .content-contact-form .form-container form input,
 .content-contact-form .form-container form textarea {
   width: 100%;
@@ -1383,7 +1470,7 @@ footer .sub-footer .social li a {
   font-size: 18px;
   font-family: 'roboto';
 }
-/* line 1217, sass/style.scss */
+/* line 1302, sass/style.scss */
 .content-contact-form .form-container form input[type="submit"],
 .content-contact-form .form-container form textarea[type="submit"] {
   background-color: #ea3437;
@@ -1399,65 +1486,65 @@ footer .sub-footer .social li a {
   margin-left: auto;
   margin-right: auto;
 }
-/* line 1226, sass/style.scss */
+/* line 1311, sass/style.scss */
 .content-contact-form .form-container form input[type="submit"]:hover,
 .content-contact-form .form-container form textarea[type="submit"]:hover {
   background-color: transparent;
   color: #ea3437;
 }
-/* line 1236, sass/style.scss */
+/* line 1321, sass/style.scss */
 .content-contact-form .form-container form p {
   margin-top: 0;
 }
 
-/* line 1242, sass/style.scss */
+/* line 1327, sass/style.scss */
 .content-production {
   margin-top: 45px;
 }
-/* line 1244, sass/style.scss */
+/* line 1329, sass/style.scss */
 .content-production .production-container {
   display: flex;
   justify-content: center;
 }
-/* line 1247, sass/style.scss */
+/* line 1332, sass/style.scss */
 .content-production .production-container .production-left {
   width: 50%;
 }
-/* line 1250, sass/style.scss */
+/* line 1335, sass/style.scss */
 .content-production .production-container .production-right {
   width: 50%;
   padding-left: 15px;
   padding-right: 15px;
 }
-/* line 1254, sass/style.scss */
+/* line 1339, sass/style.scss */
 .content-production .production-container .production-right .panel {
   margin-bottom: 0;
   border: none;
   box-shadow: none;
 }
-/* line 1259, sass/style.scss */
+/* line 1344, sass/style.scss */
 .content-production .production-container .production-right .panel-heading {
   display: none;
 }
-/* line 1263, sass/style.scss */
+/* line 1348, sass/style.scss */
 .content-production .production-container .production-right .panel-body #locations {
   list-style: none;
   padding-left: 0;
   overflow-y: visible !important;
   height: auto !important;
 }
-/* line 1268, sass/style.scss */
+/* line 1353, sass/style.scss */
 .content-production .production-container .production-right .panel-body #locations li {
   background-color: #f8f8f8;
   border-bottom: 1px solid #e0e0e0;
 }
-/* line 1271, sass/style.scss */
+/* line 1356, sass/style.scss */
 .content-production .production-container .production-right .panel-body #locations li a {
   display: flex;
   padding-top: 15px;
   padding-bottom: 15px;
 }
-/* line 1275, sass/style.scss */
+/* line 1360, sass/style.scss */
 .content-production .production-container .production-right .panel-body #locations li a .icon {
   height: 72px;
   width: 100px;
@@ -1465,65 +1552,65 @@ footer .sub-footer .social li a {
   background-repeat: no-repeat;
   background-position: center;
 }
-/* line 1282, sass/style.scss */
+/* line 1367, sass/style.scss */
 .content-production .production-container .production-right .panel-body #locations li a .local {
   color: #1c7040;
   font-size: 18px;
   width: calc(100% - 100px);
 }
-/* line 1286, sass/style.scss */
+/* line 1371, sass/style.scss */
 .content-production .production-container .production-right .panel-body #locations li a .local .adresse {
   display: none;
 }
-/* line 1292, sass/style.scss */
+/* line 1377, sass/style.scss */
 .content-production .production-container .production-right .panel-body #locations li:hover {
   background-color: #1c7040;
 }
-/* line 1294, sass/style.scss */
+/* line 1379, sass/style.scss */
 .content-production .production-container .production-right .panel-body #locations li:hover a {
   text-decoration: none;
 }
-/* line 1296, sass/style.scss */
+/* line 1381, sass/style.scss */
 .content-production .production-container .production-right .panel-body #locations li:hover a .local {
   color: #fff;
 }
-/* line 1298, sass/style.scss */
+/* line 1383, sass/style.scss */
 .content-production .production-container .production-right .panel-body #locations li:hover a .local .adresse {
   display: block;
 }
-/* line 1302, sass/style.scss */
+/* line 1387, sass/style.scss */
 .content-production .production-container .production-right .panel-body #locations li:hover a .icon {
   background-image: url(images/icon-location-hover.png);
 }
-/* line 1310, sass/style.scss */
+/* line 1395, sass/style.scss */
 .content-production .production-container .production-right .panel-footer {
   padding: 0;
   background-color: transparent;
   border: none;
 }
-/* line 1314, sass/style.scss */
+/* line 1399, sass/style.scss */
 .content-production .production-container .production-right .panel-footer ul {
   display: flex;
   justify-content: center;
   list-style: none;
   padding-left: 0;
 }
-/* line 1320, sass/style.scss */
+/* line 1405, sass/style.scss */
 .content-production .production-container .production-right .panel-footer ul li a {
   width: 72px;
   height: 38px;
   display: block;
 }
-/* line 1324, sass/style.scss */
+/* line 1409, sass/style.scss */
 .content-production .production-container .production-right .panel-footer ul li a.prev {
   background-image: url(images/bottom.png);
 }
-/* line 1327, sass/style.scss */
+/* line 1412, sass/style.scss */
 .content-production .production-container .production-right .panel-footer ul li a.next {
   background-image: url(images/up.png);
 }
 
-/* line 1339, sass/style.scss */
+/* line 1424, sass/style.scss */
 .content-production-content > h3 {
   width: 50%;
   background-color: #1c7040;
@@ -1533,12 +1620,12 @@ footer .sub-footer .social li a {
   padding: 10px 45px;
   margin-bottom: 0;
 }
-/* line 1349, sass/style.scss */
+/* line 1434, sass/style.scss */
 .content-production-content .content li:not(:first-child) {
   display: none;
 }
 
-/* line 1355, sass/style.scss */
+/* line 1440, sass/style.scss */
 .uk-lightbox-content .uk-slidenav {
   display: block;
   position: absolute;
@@ -1546,12 +1633,12 @@ footer .sub-footer .social li a {
   width: 38px;
   height: 72px;
 }
-/* line 1361, sass/style.scss */
+/* line 1446, sass/style.scss */
 .uk-lightbox-content .uk-slidenav.uk-slidenav-previous {
   background-image: url(images/previous.png);
   left: -45px;
 }
-/* line 1365, sass/style.scss */
+/* line 1450, sass/style.scss */
 .uk-lightbox-content .uk-slidenav.uk-slidenav-next {
   background-image: url(images/next.png);
   right: -45px;

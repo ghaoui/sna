@@ -9,52 +9,62 @@
             <h3 class="title-primary red">ACTUALITÉS</h3>
         </div>
         
-        <div class="row" >
-            <div class="col-lg-8 col-lg-offset-2">
-
-                    <div class="text-center uk-margin-large-bottom">
-                        <?php the_post_thumbnail();?>
+      <div class="row">
+            <div class="col-lg-9">
+                <div class="text-center"><?php the_post_thumbnail();?></div>
+                <div class="content-news"><?php the_content();?></div>
+                <?php
+                    if( have_rows('groupe_images') ):
+                ?>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="news-slideset">
+                            <div data-uk-slideset="{default: 3}" class="slideset-content">
+                                <ul class="uk-grid uk-slideset">
+                                    <?php
+                                        while ( have_rows('groupe_images') ) : the_row();                                    
+                                    ?>
+                                    <li><a data-uk-lightbox href="<?php the_sub_field('image');?>"><img src="<?php the_sub_field('image');?>" alt=""></a></li>
+                                    <?php
+                                        endwhile;
+                                    ?>                        
+                                </ul>
+                                <a href="" data-uk-slideset-item="previous" class="previous"></a>
+                                <a href="" data-uk-slideset-item="next" class="next"></a>
+                            </div>      
+                        </div> 
                     </div>
-                    <div class="content">
-                        <?php the_content();?>
-                    </div>
-
+                </div>                        
+                <?php endif; ?>
             </div>
-        </div> 
-        <div class="border uk-margin-large-bottom">
-            <div class="autre">Autres articles</div>
-        </div>
-        
-        <div data-uk-slideset="{default: 3}" class="content-autre">
-            <div class="uk-slidenav-position">
-                <ul class="uk-grid uk-slideset">
-                    <?php 
-                        $args  = array(
-                            'post_type' => 'news',
-                            'posts_per_page' => -1,
-                            'order' => 'DESC',
-                        );
-                        $the_query = new WP_Query( $args ); 
-                        if ( $the_query->have_posts() ) :
-                            while ( $the_query->have_posts() ) : $the_query->the_post(); 
-                    ?> 
+            <div class="col-lg-3 right-news">
+                <div class="dernier-news">DERNIERS NEWS</div>
+                <ul class="news-item-list">
+                <?php 
+                    $args  = array(
+                        'post_type' => 'news', 
+                        'order' => 'DESC',
+                        'posts_per_page'=> 4 
+                    );
+                    $the_query = new WP_Query( $args ); 
+                    if ( $the_query->have_posts() ) :
+                        while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                ?>
                     <li>
-                        <div class="slideset-content">
-                            <figure>
-                                <?php the_post_thumbnail();?>
-                                <a href="<?php the_permalink();?>">Lire la suite</a>
-                            </figure>
-                            <div class="excerpt"><?php the_excerpt();?></div>
-                        </div>
-                        
+                        <a href="<?php the_permalink();?>">
+                            <div class="item">
+                                <div class="block1"><?php the_post_thumbnail();?></div>
+                                <div class="block2">
+                                    <div class="title"><?php the_title();?></div>
+                                </div>
+                            </div>
+                        </a>
                     </li>
-                    <?php
-                            endwhile;
-                        endif; 
-                    ?>
+                <?php
+                        endwhile;
+                    endif;
+                ?>
                 </ul>
-                <a href="" class="uk-slidenav uk-slidenav-previous" data-uk-slideset-item="previous"></a>
-                <a href="" class="uk-slidenav uk-slidenav-next" data-uk-slideset-item="next"></a>
             </div>
         </div>
     </div>
