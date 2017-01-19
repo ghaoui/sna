@@ -46,10 +46,8 @@
                                endif;
                             else :
                     ?>
-                                               <img src="<?php bloginfo('stylesheet_directory'); ?>/images/youtube-512.png">  
-                                               <img src="<?php bloginfo('stylesheet_directory'); ?>/images/youtube-512.png">  
-                                               <img src="<?php bloginfo('stylesheet_directory'); ?>/images/youtube-512.png">  
-                                               <img src="<?php bloginfo('stylesheet_directory'); ?>/images/youtube-512.png">  
+                                               <img src="<?php bloginfo('stylesheet_directory'); ?>/images/video.png">  
+                                                
                     <?php
                             endif;
                     ?>
