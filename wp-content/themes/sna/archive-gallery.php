@@ -36,9 +36,10 @@
                     <?php   if(get_field('type') == 'image'):
                               if( have_rows('groupe_photo') ):
                                       while( have_rows('groupe_photo') ): the_row();
+                              $image_gallery = get_sub_field('image');
                                           if($i<4): 
                     ?>
-                                               <img src="<?php the_sub_field('image');?>">   
+                                               <img src="<?php echo $image_gallery['url'];?>">   
                     <?php
                                             $i++;
                                         endif;

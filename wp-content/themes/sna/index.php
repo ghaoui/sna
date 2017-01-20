@@ -250,9 +250,10 @@
         ?>
         <div class="uk-overlay-hover parent-anim">
             <div class="anim">
-                <img src="<?php the_sub_field('image');?>" class="uk-overlay-spin">
+                <?php $image_gallery = get_sub_field('image');?>
+                <img src="<?php echo $image_gallery['url'];?>" class="uk-overlay-spin">
                 <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom">
-                    <a href="<?php the_sub_field('image');?>" class="" data-uk-lightbox="{group: 'group1'}"></a>
+                    <a href="<?php echo $image_gallery['original_image']['url'];?>" class="" data-uk-lightbox="{group: 'group1'}"></a>
                 </figcaption>
             
             </div>

@@ -884,6 +884,9 @@ footer{
     }
     .anim{
        // opacity: 0;
+       img{
+           border: 3px solid #fff;
+       }
     }
     .uk-overlay-icon{
         &:before{
@@ -908,6 +911,7 @@ footer{
         margin-left: auto;
         margin-right: auto;
         width: 210px;
+        margin-bottom: 60px;
         li{
             border: 1px solid #cdcdcd;
             padding-right: 10px;

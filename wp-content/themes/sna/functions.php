@@ -156,3 +156,7 @@ function get_local(){
 	echo json_encode($local);
 	die();
 }
+function add_custom_sizes() {
+    add_image_size( 'galery-size', 700, 698, true );
+}
+add_action('after_setup_theme','add_custom_sizes');
