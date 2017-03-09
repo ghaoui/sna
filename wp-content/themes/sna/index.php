@@ -23,40 +23,7 @@
     <div class="container">
         <div class="text-center uk-margin-bottom">
             <h3 class="title-primary">Actualités</h3>
-        </div>
-        <?php 
-                $args  = array(
-                    'post_type' => 'news',
-                    'posts_per_page' => 1,
-                    'order' => 'DESC'
-                );
-                $the_query = new WP_Query( $args ); 
-                if ( $the_query->have_posts() ) :
-                    while ( $the_query->have_posts() ) : $the_query->the_post(); 
-            ?>
-        <div class="row news-first">
-            
-            <div class="col-lg-4" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
-                <figure class="uk-overlay uk-overlay-hover">
-                    <?php the_post_thumbnail('', array('class'=>'uk-overlay-spin'));?>
-                    <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom">
-                        <a class="readmoreicon" href="<?php the_permalink();?>"></a>
-                    </figcaption>
-                </figure>                
-            </div>
-            <div class="col-lg-8" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
-                <?php the_content();?>
-            </div>
-            
-        </div>
-        <div class="text-right border">
-            <a href="<?php the_permalink();?>">Lire la suite</a>
-        </div>
-        <?php
-                endwhile;
-            endif; 
-        ?>
-        
+        </div>        
         <div class="row uk-margin-large-top" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.anim', delay: 500}">
            <?php 
                 $args  = array(
@@ -97,6 +64,20 @@
         <div class="text-center">
             <h3 class="title-primary">NOS PRODUITS</h3>
         </div>
+        <div class="contents">
+            <?php 
+                $args  = array(
+                    'post_type' => 'page',
+                    'p' => 964
+                );
+                $the_query = new WP_Query( $args ); 
+                if ( $the_query->have_posts() ) :
+                    while ( $the_query->have_posts() ) : $the_query->the_post(); 
+                        the_content();
+                    endwhile;
+                endif;
+            ?>
+        </div>
         <div class="text-center uk-margin-large-bottom">
             <a class="link-all" href="/products/ruminants/">Afficher tous les produits</a>
         </div>
@@ -119,7 +100,7 @@
                     </figure>
                     <div class="content">
                         <h4><?php the_title();?></h4>
-                        <?php the_excerpt(); ?>
+                        <?php //the_excerpt(); ?>
                         <div class="text-center">
                             <a data-couleur="<?php the_field('couleur');?>" href="<?php the_permalink();?>" style="background-color: <?php the_field('couleur');?>">Afficher Plus</a>
                         </div>

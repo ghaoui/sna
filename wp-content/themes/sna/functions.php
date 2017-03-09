@@ -21,7 +21,7 @@ wp_enqueue_style('slideshow', get_template_directory_uri() . '/css/slideshow.min
 wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), '1.0.0', 'all');
 //	//js
 	//wp_enqueue_script('my_jquery', get_template_directory_uri() . '/js/jquery-1.12.3.min.js', array(), '1.12.3', true);
-//	wp_enqueue_script('bootstrapjs', get_template_directory_uri() . '/js/bootstrap.js', array(), '3.3.6', true);
+	wp_enqueue_script('bootstrapjs', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '3.3.6', true);
 	wp_enqueue_script('UiKit', get_template_directory_uri() . '/js/uikit.js', array(), '1.0.0', true);
         wp_enqueue_script('UiKit_grid', get_template_directory_uri() . '/js/grid.min.js', array(), '1.0.0', true);
 	wp_enqueue_script('knob', get_template_directory_uri() . '/js/jquery.knob.min.js', array(), '1.0.0', true);
@@ -31,9 +31,12 @@ wp_enqueue_style('style', get_template_directory_uri() . '/style.css', array(), 
         wp_enqueue_script('parallax', get_template_directory_uri() . '/js/parallax.min.js', array(), '1.0.0', true);
         wp_enqueue_script('uikit_accordion', get_template_directory_uri() . '/js/accordion.min.js', array(), '1.0.0', true);
         wp_enqueue_script('uikit_slideshow', get_template_directory_uri() . '/js/slideshow.min.js', array(), '1.0.0', true);
+        wp_enqueue_script('uikit_slideshow-fx', get_template_directory_uri() . '/js/slideshow-fx.min.js', array(), '1.0.0', true);
         wp_enqueue_script('uikit_slideset', get_template_directory_uri() . '/js/slideset.js', array(), '1.0.0', true);
         wp_enqueue_script('newsbox', get_template_directory_uri() . '/js/jquery.bootstrap.newsbox.min.js', array(), '1.0.0', true);
-
+        wp_enqueue_script('velocity_js', get_template_directory_uri() . '/js/velocity.min.js', array(), '1.0.0', true);
+        wp_enqueue_script('velocity_ui_js', get_template_directory_uri() . '/js/velocity.ui.min.js', array(), '1.0.0', true);
+        
 //	/************* My script *****************/
         wp_enqueue_script('maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDS23LOuwI9Ar-5m08oB9qf8kqXw4PbEOs', array(), '1', true);
 	wp_enqueue_script('myscript_js', get_template_directory_uri() . '/js/script.js', array(), '1', true);

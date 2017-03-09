@@ -11,34 +11,31 @@
         
       <div class="row">
             <div class="col-lg-9">
-                <div class="text-center"><?php the_post_thumbnail();?></div>
-                <div class="content-news"><?php the_content();?></div>
-                <?php
-                    if( have_rows('groupe_images') ):
-                ?>
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <div class="news-slideset">
-                            <div data-uk-slideset="{default: 3}" class="slideset-content">
-                                <ul class="uk-grid uk-slideset">
-                                    <?php
-                                        while ( have_rows('groupe_images') ) : the_row();                                    
-                                    ?>
-                                    <li><a data-uk-lightbox href="<?php the_sub_field('image');?>"><img src="<?php the_sub_field('image');?>" alt=""></a></li>
-                                    <?php
-                                        endwhile;
-                                    ?>                        
-                                </ul>
-                                <a href="" data-uk-slideset-item="previous" class="previous"></a>
-                                <a href="" data-uk-slideset-item="next" class="next"></a>
-                            </div>      
-                        </div> 
+                        <h3 class="text-center grand-title"><?php the_title();?></h3>
+                        <?php
+                            if( have_rows('groupe_images') ):
+                        ?>
+                        <div data-uk-slideshow="{animation: 'random-fx'}" class="uk-slide-news">
+                            <ul class="uk-slideshow">
+                                <?php
+                                    while ( have_rows('groupe_images') ) : the_row();                                    
+                                ?>
+                                <li><img src="<?php the_sub_field('image');?>" alt=""></li>
+                                <?php
+                                    endwhile;
+                                ?>  
+                            </ul>
+                            <a class="uk-slidenav uk-slidenav-previous" href="" data-uk-slideshow-item="previous"></a>
+                            <a class="uk-slidenav uk-slidenav-next" href="" data-uk-slideshow-item="next"></a>
+                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>                        
-                <?php endif; ?>
             </div>
             <div class="col-lg-3 right-news">
-                <div class="dernier-news">DERNIERS NEWS</div>
+                <div class="dernier-news">DERNIERES NEWS</div>
                 <ul class="news-item-list">
                 <?php 
                     $args  = array(

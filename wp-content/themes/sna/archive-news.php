@@ -11,8 +11,8 @@
                 <?php the_post_thumbnail();?>
                 <div class="caption">
                 <h3><?php the_title();?></h3>
-                <?php the_excerpt();?>
-                <p class="text-right"><a href="<?php the_permalink();?>" class="show-more"><span>LIRE PLUS</span></a></p>
+                <?php //the_excerpt();?>
+                <p class="text-right"><a href="<?php the_permalink();?>" class="show-more"><span>VOIR PLUS</span></a></p>
                 </div>
             </div>
             </div>

@@ -323,6 +323,10 @@ nav{
             }
         }
     }
+    .contents{
+        font-size: 18px;
+        text-align: center;
+    }
 }
 .assurance{
     background-color: #1c7040;
@@ -874,7 +878,61 @@ footer{
             }
         }
     }
-        
+    .itefm-product-flex{
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .item-product{
+            margin-bottom: 30px;
+            width: 50%;
+            padding: 15px;
+            figure{
+                overflow: initial;
+                a{
+                    &:focus{
+                        outline: none;
+                    }
+                }
+            }
+        }
+    } 
+    .modal{
+        .sub-title{
+            font-size: 28px;
+            color: #1C7040;
+            text-transform: uppercase;
+        }
+        .modal-header{
+            
+        }
+        .modal-body{
+            ul{
+                list-style: none;
+                li{
+                    position: relative;
+                    &:before{
+                        content: '';
+                        width: 20px;
+                        height: 6px;
+                        background-image: url(images/puce.png);
+                        display: block;
+                        position: absolute;
+                        left: -25px;
+                        top: 7px;
+                    }
+                }
+            }
+            h4{
+                font-size: 24px;
+                color: #1C7040;
+            }
+            h5{
+                font-size: 20px;
+                color: #E5322C;
+            }
+        }
+    }
 }
 .content-gallery{
     margin-top: 45px;
@@ -1006,6 +1064,12 @@ footer{
 }
 .content-news{
     margin-top: 45px;
+    .grand-title{
+        color: #000;
+        font-weight: 600;
+        font-size: 20px;
+        margin-top: 60px;
+    }
     .content{
         text-align: justify;
     }
@@ -1140,6 +1204,7 @@ footer{
             color: #000;
             font-weight: 600;
             font-size: 20px;
+            margin-top: 60px;
         }
         .news-item-list{
             padding-left: 0;
@@ -1160,13 +1225,14 @@ footer{
                     .item{
                         display: flex;
                         .block1{
-                            width: 20%;
+                            width: 33%;
                             margin-right: 15px;
                             border: 2px solid #1c7040;
                             border-radius: 10px;
                             overflow: hidden;
                         }
                         .block2{
+                            width: 50%;
                             .title{
                                 font-size: 16px;
                                 color: #000;
@@ -1178,6 +1244,29 @@ footer{
             }
         }
     }
+    .uk-slide-news{
+        position: relative;
+        &:hover{
+            .uk-slidenav{
+                display: block;
+            }
+        }
+        .uk-slidenav{
+            display: none;
+            position: absolute;
+            top: calc(50% - 36px);
+            width: 39px;
+            height: 72px;
+            &.uk-slidenav-next{
+                right: 0;
+                background-image: url(images/next.png);
+            }
+            &.uk-slidenav-previous{
+                left: 0;
+                background-image: url(images/previous.png);
+            }
+        }
+    }        
 }
 #production_map{
     height: 600px;
@@ -1220,7 +1309,7 @@ footer{
     }
     .uk-grid{
         &.target{
-           align-items: center; 
+          // align-items: center; 
         }
     }
     .uk-switcher{
@@ -1230,6 +1319,22 @@ footer{
                 font-size: 22px;
             }
             font-size: 18px;
+        }
+        ul{
+            list-style: none;
+            li{
+                position: relative;
+                &:before{
+                    content: '';
+                    width: 20px;
+                    height: 6px;
+                    background-image: url(images/puce.png);
+                    display: block;
+                    position: absolute;
+                    left: -25px;
+                    top: 7px;
+                }
+            }
         }
     }
 }

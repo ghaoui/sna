@@ -34,9 +34,9 @@ $idPost = get_the_ID();
         </div>
         
         <div class="row">
-            <div class="col-lg-3">
-                <div class="uk-accordion" data-uk-accordion>
-                     <?php 
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="itefm-product-flex">
+                    <?php 
                         $args  = array(
                             'p' => $idPost,
                             'post_type' => 'products',
@@ -44,85 +44,28 @@ $idPost = get_the_ID();
                         );
                         $i = 0;
                         $the_query = new WP_Query( $args ); 
-                        if ( $the_query->have_posts() ) :
-                            while ( $the_query->have_posts() ) : $the_query->the_post(); 
-                                if( have_rows('categorie') ):
-                                    while( have_rows('categorie') ): the_row(); 
-                    ?>
-
-                    <h3 class="uk-accordion-title"><?php the_sub_field('titre');?></h3>
-                    <div class="uk-accordion-content">
-                        <ul>
-                            <?php
-                                if( have_rows('produit') ):
-                                    while( have_rows('produit') ): the_row(); 
-                            ?>
-                            <li>
-                                <a href="#" data-i="<?php echo $i;?>"><?php the_sub_field('titre');?></a>
-                            </li>
-                            <?php 
-                            $i++;
-                                    endwhile;
-                                endif;
-                            ?>
-                        </ul>
-                    </div>
-                    <?php 
-                                    endwhile;
-                                endif;
-                            endwhile;
-                        endif;
-                    ?>
-                </div>
-            </div>
-            <div class="col-lg-offset-2 col-lg-5">
-                <div class="uk-slidenav-position" data-uk-slideshow="{animation: 'scale'}">
-                    <ul class="uk-slideshow">
-                        <?php 
-                            $args  = array(
-                                'p' => $idPost,
-                                'post_type' => 'products',
-                                'posts_per_page' => 1,
-                            );
-                            $i=0;
-                            $the_query = new WP_Query( $args ); 
                             if ( $the_query->have_posts() ) :
                                 while ( $the_query->have_posts() ) : $the_query->the_post(); 
                                     if( have_rows('categorie') ):
                                         while( have_rows('categorie') ): the_row(); 
-                                            if( have_rows('produit') ):
-                                                while( have_rows('produit') ): the_row(); 
-                        ?>
-                        <li>
-                            <figure>
-                                <img src="<?php the_sub_field('image');?>">
+                    ?>
+                        <div class="item-product">
+                            <figure class="uk-overlay uk-overlay-hover">
+                                <img class="uk-overlay-scale" src="<?php the_sub_field('logo');?>">
+                                <div class="uk-overlay-panel">...</div>
+                                <a href="#modal<?php echo $idPost.'-'.$i;?>" role="button" data-toggle="modal" class="uk-position-cover" href=""></a>
                             </figure>
-                            <div class="description">
-                                <?php the_sub_field('text');?>
-                            </div>
-                            
-                        </li>
-                        <?php 
-                        $i++;
-                                                endwhile;
-                                            endif;
+                        </div>
+                    <?php require 'modal.php';?>
+                    <?php 
+                    $i++;
                                         endwhile;
                                     endif;
                                 endwhile;
                             endif;
-                        ?>
-                    </ul>
-                    <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
-                    <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next"></a>
-                    <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-flex-center">
-                        <?php 
-                            for($j = 0; $j<$i; $j++){
-                        ?>
-                        <li data-uk-slideshow-item="<?php echo $j;?>"><a href=""></a></li>
-                        <?php }?>
-                    </ul>
+                    ?>
                 </div>
-            </div>
+            </div>                    
         </div>
     </div>
 </section>

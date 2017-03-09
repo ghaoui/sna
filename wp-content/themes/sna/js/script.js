@@ -194,6 +194,43 @@ initMapProduction($);
             });
         });*/
         pagination();
+        
+        
+             // add the animation to the modal
+$(".modal").each(function(index) {
+    
+  $(this).on('show.bs.modal', function(e) {
+    var open = $(this).attr('data-easein');
+    
+    if (open == 'shake') {
+      $('.modal-dialog').velocity('callout.' + open); 
+    } else if (open == 'pulse') {
+      $('.modal-dialog').velocity('callout.' + open);
+    } else if (open == 'tada') {
+      $('.modal-dialog').velocity('callout.' + open);
+    } else if (open == 'flash') {
+      $('.modal-dialog').velocity('callout.' + open);
+    } else if (open == 'bounce') {
+      $('.modal-dialog').velocity('callout.' + open);
+    } else if (open == 'swing') {
+      $('.modal-dialog').velocity('callout.' + open);
+    } else {
+      $('.modal-dialog').velocity('transition.' + open);
+    }
+
+  });
+});
+$('.closeModal').click(function(){
+    var modal = $(this).parents('.modal');
+    $(modal).find('.modal-dialog').velocity({
+    translateZ: 0, // Force HA by animating a 3D property
+    translateX: "1600px",
+}, {
+    /* Log all the animated divs. */
+    complete: function(elements) { $(modal).modal('hide');}
+});
+    
+});
 });
 pagination = function(){
         //how much items per page to show
