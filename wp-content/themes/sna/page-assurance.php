@@ -11,12 +11,15 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="excerpt"><?php the_excerpt();?></div>
+                <div class="text-center uk-margin-large-bottom">
+                    <img src="<?php the_field('image_seconde');?>">
+                </div>
             </div>
         </div>
 
                 <div class="row" data-uk-grid-match="{target: '.target'}">
                     <div class="col-lg-4">
-                        <div class="target">
+                        <div class="target text-center">
                             <?php the_post_thumbnail();?>
                         </div>                            
                     </div>

@@ -14,6 +14,11 @@
         <h3 class="title-primary"><?php the_title();?></h3>
         <?php
             the_excerpt();
+            ?>
+        <div class="text-center">
+            <?php the_post_thumbnail();?>
+        </div>  
+                <?php
                 endwhile;
             endif;
         ?>
@@ -37,14 +42,14 @@
                     while ( $the_query->have_posts() ) : $the_query->the_post(); 
                 if ( $i!=0 ) :
             ?> 
-            <div class="col-lg-4 text-center anim">
+            <div class="col-lg-4 col-md-4 col-sm-4 text-center anim">
                 <figure class="uk-overlay uk-overlay-hover">
                     <?php the_post_thumbnail('', array('class'=>'uk-overlay-spin'));?>
                     <figcaption class="uk-overlay-panel uk-overlay-background uk-overlay-icon uk-overlay-slide-bottom">
                         <a class="readmoreicon" href="<?php the_permalink();?>"></a>
                     </figcaption>
                 </figure>
-                <div class="">
+                <div class="content-news-sub">
                     <h4><?php the_title();?></h4>
                     <a class="readmore" href="<?php the_permalink();?>">Lire la suite</a>
                 </div>                    
@@ -93,7 +98,7 @@
                 if ( $the_query->have_posts() ) :
                     while ( $the_query->have_posts() ) : $the_query->the_post(); 
             ?>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-3 col-sm-3">
                 <div class="item">
                     <figure>
                         <?php the_post_thumbnail();?>
@@ -185,6 +190,7 @@
         endif;
     ?>
 </section>
+<?php /*
 <section class="sites" id="sites">
     <div class="text-center uk-margin-bottom">
         <h3 class="title-primary">SITES DE PRODUCTION</h3>
@@ -207,6 +213,8 @@
     ?>
     
 </section>
+ */
+?>
 <section class="gallery" id="gallery" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.anim', delay: 500}">
     <div class="text-center uk-margin-bottom">
         <h3 class="title-primary">GALERIE</h3>

@@ -51,7 +51,7 @@ $idPost = get_the_ID();
                     ?>
                         <div class="item-product">
                             <figure class="uk-overlay uk-overlay-hover">
-                                <img class="uk-overlay-scale" src="<?php the_sub_field('logo');?>">
+                                <img class="uk-overlay-grayscale" src="<?php the_sub_field('logo');?>">
                                 <div class="uk-overlay-panel">...</div>
                                 <a href="#modal<?php echo $idPost.'-'.$i;?>" role="button" data-toggle="modal" class="uk-position-cover" href=""></a>
                             </figure>

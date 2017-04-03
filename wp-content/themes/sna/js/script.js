@@ -5,11 +5,18 @@
     var duration = 500;
     var flechmenu = true;
     var scroll = false;
+    var widthWindow = $(window).width();
+    console.info(widthWindow);
     $(window).scroll(function() {
         if ($(this).scrollTop() > offset) {
             $('.back-top').fadeIn(duration);
             //TweenMax.from(".parent-header", 1, {top: 0});
-            TweenMax.to(".parent-header", 1, {top: -153 , ease:Back.easeOut});
+            if(widthWindow < 977){
+                TweenMax.to(".parent-header", 1, {top: -173 , ease:Back.easeOut});
+            }else{
+                TweenMax.to(".parent-header", 1, {top: -153 , ease:Back.easeOut});  
+            }
+            
             flechmenu = false;
             scroll = true;
         } else {
@@ -24,7 +31,11 @@
     $('.flech-menu').click(function(){
         if(scroll){
             if(flechmenu){
-                TweenMax.to(".parent-header", 1, {top: -153 , ease:Back.easeOut});
+                if(widthWindow < 977){
+                    TweenMax.to(".parent-header", 1, {top: -173 , ease:Back.easeOut});
+                }else{
+                    TweenMax.to(".parent-header", 1, {top: -153 , ease:Back.easeOut});  
+                }
                 flechmenu = false;
             }else{
                 TweenMax.to(".parent-header", 1, {top: 0 , ease:Back.easeOut});
@@ -40,6 +51,8 @@
     });
     TweenMax.from(".logo", 1, {left: -600});
     TweenMax.to(".logo", 1, {left: 0,opacity:1, ease:Back.easeOut});
+    TweenMax.from(".logopgh", 1, {right: -600});
+    TweenMax.to(".logopgh", 1, {right: 0,opacity:1, ease:Back.easeOut});
     TweenMax.from(".iso", 1, {scale:0});
     TweenMax.to(".iso", 1, {opacity:1, scale:1});
     TweenMax.to(".facebook", 1, {opacity:1, delay:1});
@@ -119,7 +132,7 @@
                 
         }, 3000);
         
-        $('.logo img').hover(function(){
+        $('.logo img, .logopgh img').hover(function(){
             $(this).addClass('animated shake');
         }, function(){
             $(this).removeClass('animated shake');
