@@ -134,12 +134,12 @@
             <h3 class="title-primary white">Assurance qualité</h3>
         </div>
         <div class="row" data-uk-grid-match="{target: '.target'}">
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-md-4 col-sm-3">
                         <div class="target">
                             <?php the_post_thumbnail();?>
                         </div>                            
                     </div>
-                    <div class="col-lg-8">                    
+                    <div class="col-lg-8 col-md-8 col-sm-9 hidden-xs">                    
                     <div class="uk-grid target">
                         <div class="uk-width-medium-1-2">
                             <ul class="uk-tab uk-tab-left" data-uk-tab="{connect:'#my-id'}">
@@ -222,7 +222,7 @@
     <div class="text-center">
         <a class="voir-plus" href="/gallery?filter=all"><span>Afficher Plus</span></a>
     </div>
-    <div class="uk-grid-width-1-4" data-uk-grid >
+    <div class="uk-grid-width-large-1-4 uk-grid-width-medium-1-4 uk-grid-width-small-1-1" data-uk-grid >
         <?php 
             $args  = array(
                 'post_type' => 'gallery',
@@ -237,6 +237,7 @@
                             while( have_rows('groupe_photo') ): the_row();
                                 if($i<12):
         ?>
+        <div>
         <div class="uk-overlay-hover parent-anim">
             <div class="anim">
                 <?php $image_gallery = get_sub_field('image');?>
@@ -246,6 +247,7 @@
                 </figcaption>
             
             </div>
+        </div>
         </div>
         <?php
                                 $i++;
@@ -267,7 +269,7 @@
 <div class="form">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
+            <div class="col-lg-6 col-md-6 col-sm-6" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
                 <address>
                     <h5>Société de Nutrition Animale</h5>
                     <p>Z.I. Borj Cédria - Ben Arous - Tél.: 70 020 640 - Fax : 71 430 911<br>
@@ -285,7 +287,7 @@
                     </p>
                 </address>
             </div>
-            <div class="col-lg-6" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
+            <div class="col-lg-6 col-md-6 col-sm-6" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
                 <?php echo do_shortcode('[contact-form-7 id="71" title="Formulaire de contact 1"]');?>
             </div>
         </div>

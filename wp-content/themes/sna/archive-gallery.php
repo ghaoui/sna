@@ -12,7 +12,7 @@
         </ul>  
         <!-- Dynamic Grid -->  
         <div class="parent-div-padding">
-            <div class="uk-grid uk-grid-width-1-5 uk-grid-large album" data-uk-grid="{controls: '#my-id'}">  
+            <div class="uk-grid uk-grid-width-large-1-5 uk-grid-width-medium-1-3 uk-grid-width-small-1-1 uk-grid-large album" data-uk-grid="{controls: '#my-id'}">  
                 <?php 
                 $args  = array(
                     'post_type' => 'gallery',
@@ -30,7 +30,8 @@
                     while ( $the_query->have_posts() ) : $the_query->the_post(); 
                 $i=0;
             ?>
-            <div class="uk-overlay-hover" data-uk-filter="<?php the_field('type');?>">
+                <div data-uk-filter="<?php the_field('type');?>">
+            <div class="uk-overlay-hover">
                 <a href="<?php the_permalink();?>" class="link-album">
                 <div class="anim">
                     <?php   if(get_field('type') == 'image'):
@@ -57,6 +58,7 @@
                     <h5><?php the_title();?></h5>
                 </a>
             </div>
+                </div>
             <?php
                     endwhile;
                 endif;

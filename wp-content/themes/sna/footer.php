@@ -7,17 +7,17 @@
     </ul>
     <div class="sub-footer">
         <div class="container-fluid">
-            <div class="col-lg-3 text-center">
+            <div class="col-lg-3 col-md-3 col-sm-4 text-center">
                 <a href="<?php bloginfo('url'); ?>" class="logo" >
                     <img class="" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo-white.png" alt="">
                 </a>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-6 col-sm-4">
                 <div class="copyright">
                      All Rights Reserved © 2016 Streamerz.
                 </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 col-md-3 col-sm-4">
                 <ul class="social  ">
                     <li class="facebook uk-animation-hover uk-animation-scale">
                         <a href="#" class="uk-icon-linkedin"></a>

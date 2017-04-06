@@ -18,12 +18,12 @@
         </div>
 
                 <div class="row" data-uk-grid-match="{target: '.target'}">
-                    <div class="col-lg-4">
+                    <div class="col-lg-4 col-md-4 hidden-sm hidden-xs">
                         <div class="target text-center">
                             <?php the_post_thumbnail();?>
                         </div>                            
                     </div>
-                    <div class="col-lg-8">                    
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">                    
                     <div class="uk-grid target">
                         <div class="uk-width-medium-1-2">
                             <ul class="uk-tab uk-tab-left" data-uk-tab="{connect:'#my-id'}">
