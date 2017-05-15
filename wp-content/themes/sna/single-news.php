@@ -31,6 +31,9 @@
                             <a class="uk-slidenav uk-slidenav-next" href="" data-uk-slideshow-item="next"></a>
                         </div>
                         <?php endif; ?>
+                        <div class="content uk-margin-large-top">
+                            <?php the_content();?>
+                        </div>
                     </div>
                 </div>                        
             </div>

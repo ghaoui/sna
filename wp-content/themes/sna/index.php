@@ -190,8 +190,8 @@
         endif;
     ?>
 </section>
-<?php /*
-<section class="sites" id="sites">
+
+<section class="sites content-production" id="sites">
     <div class="text-center uk-margin-bottom">
         <h3 class="title-primary">SITES DE PRODUCTION</h3>
     </div>
@@ -206,15 +206,59 @@
         if ( $the_query->have_posts() ) :
             while ( $the_query->have_posts() ) : $the_query->the_post(); 
     ?>
-        <?php the_content();?>
+        <div class="production-container" data-uk-grid-match>
+        <div class="production-left">
+            <div id="production_map"></div>
+        </div>
+        <div class="production-right">
+            <div class="row">			
+                <div class="col-md-12">
+                    <div class="panel">
+                        <div class="panel-heading">
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <ul id="locations">
+                                        <?php 
+                                            if( have_rows('sites') ):
+                                                $i = 0;
+                                                while( have_rows('sites') ): the_row(); 
+                                        ?>
+                                        <li class="news-item">
+                                            <a href="#" data-lat="<?php echo floatval(get_sub_field('lat'));?>" data-long="<?php echo floatval(get_sub_field('long'));?>" data-cpt="<?php echo $i; ?>">
+                                                <div class="icon"></div>
+                                                <div class="local">
+                                                    <div class="titre"><?php the_sub_field('titre');?></div>
+                                                    <div class="description"><?php the_sub_field('description');?></div>
+                                                    <div class="adresse"><?php the_sub_field('adresse');?></div>
+                                                </div>
+                                            </a>
+                                            <div class="titre"></div>
+                                        </li>
+                                        <?php 
+                                        $i++;
+                                                endwhile;
+                                            endif;
+                                        ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php
             endwhile;
         endif;
     ?>
     
 </section>
- */
-?>
+
 <section class="gallery" id="gallery" data-uk-scrollspy="{cls:'uk-animation-fade', target: '.anim', delay: 500}">
     <div class="text-center uk-margin-bottom">
         <h3 class="title-primary">GALERIE</h3>

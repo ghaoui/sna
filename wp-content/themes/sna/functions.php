@@ -163,3 +163,8 @@ function add_custom_sizes() {
     add_image_size( 'galery-size', 700, 698, true );
 }
 add_action('after_setup_theme','add_custom_sizes');
+// [bartag foo="foo-value"]
+function imagelogo( $atts ) {
+    return '<img src="'.get_bloginfo('stylesheet_directory').'/images/icons/'.$atts['img'].'.png">';
+}
+add_shortcode( 'logosna', 'imagelogo' );

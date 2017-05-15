@@ -5,6 +5,20 @@
       <li class="layer" data-depth="0.00"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/parallax-footer/colline.png"></li>
       <li class="layer" data-depth="0.10"><img src="<?php bloginfo('stylesheet_directory'); ?>/images/parallax-footer/animaux.png"></li>
     </ul>
+    <div class="signature" >
+        <div class="text-center">
+            <img id="snatext1" class="" src="<?php bloginfo('stylesheet_directory'); ?>/images/sna-text1.png" alt="" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
+        </div>
+        <div class="text-center">
+            <img id="snatext2" class="" src="<?php bloginfo('stylesheet_directory'); ?>/images/sna-text2.png" alt="" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
+        </div>
+        <div class="text-center">
+            <img id="snatext3" class="" src="<?php bloginfo('stylesheet_directory'); ?>/images/sna-text3.png" alt="" data-uk-scrollspy="{cls:'uk-animation-slide-left'}">
+        </div>
+        <div class="text-center">
+            <img id="snatext4" class="" src="<?php bloginfo('stylesheet_directory'); ?>/images/sna-text4.png" alt="" data-uk-scrollspy="{cls:'uk-animation-slide-right'}">
+        </div>
+    </div>
     <div class="sub-footer">
         <div class="container-fluid">
             <div class="col-lg-3 col-md-3 col-sm-4 text-center">

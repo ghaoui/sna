@@ -11,7 +11,7 @@
             <li data-uk-filter="video"><a href="">VIDEO</a></li>  
         </ul>  
         <!-- Dynamic Grid -->  
-        <div class="parent-div-padding">
+        <div class="parent-div-padding" data-uk-grid-match="{target: 'h5'}">
             <div class="uk-grid uk-grid-width-large-1-5 uk-grid-width-medium-1-3 uk-grid-width-small-1-1 uk-grid-large album" data-uk-grid="{controls: '#my-id'}">  
                 <?php 
                 $args  = array(
@@ -36,6 +36,7 @@
                 <div class="anim">
                     <?php   if(get_field('type') == 'image'):
                               if( have_rows('groupe_photo') ):
+                                 //echo '<pre>'; print_r(get_sub_field('image'));echo '</pre>';
                                       while( have_rows('groupe_photo') ): the_row();
                               $image_gallery = get_sub_field('image');
                                           if($i<4): 
@@ -43,10 +44,27 @@
                                                <img src="<?php echo $image_gallery['url'];?>">   
                     <?php
                                             $i++;
+                                           else:
+                                               break;
                                         endif;
                                     endwhile;
                                endif;
                             else :
+                                if( have_rows('groupe_video') ):
+                                    $j=0;
+                                 //echo '<pre>'; print_r(get_sub_field('image'));echo '</pre>';
+                                      while( have_rows('groupe_video') ): the_row();
+                              $image_gallery = get_sub_field('image');
+                                          if($j<3): 
+                    ?>
+                                               <img src="<?php echo $image_gallery['url'];?>">   
+                    <?php
+                                            $j++;
+                                           else:
+                                               break;
+                                        endif;
+                                    endwhile;
+                               endif;
                     ?>
                                                <img src="<?php bloginfo('stylesheet_directory'); ?>/images/video.png">  
                                                 
